@@ -3,7 +3,7 @@ import React from 'react'
 const UpdatePage = () => {
     return (
         <div>
-            <h1>Update!</h1>
+            <h1>Add a Review!</h1>
         </div>
     )
 }
