@@ -28,13 +28,25 @@ const RestaurantList = (props) => {
                     </tr>
                 </thead>
                 <tbody> 
-                    <tr>
+                    {restaurants && restaurants.map((restaurant) => {
+                        return(
+                            <tr key={restaurant.id}>
+                                <td>{restaurant.name}</td>
+                                <td>{restaurant.location}</td>
+                                <td>{"$".repeat(restaurant.price_range)}</td>
+                                <td>reviews</td>
+                                <td><button className="btn btn-warning">Update</button></td>
+                                <td><button className="btn btn-danger">Delete</button></td>
+                            </tr>
+                        )
+                    })}
+                    {/* <tr>
                         <td>Jenn's Bagels</td>
                         <td>RiNo</td>
                         <td>$$</td>
                         <td>5 stars!</td>
                         <td><button className="btn btn-warning">Update</button></td>
-                        <td><button className="btn btn-danger">Delete</button></td>
+                        <td><button className="btn btn-warning">Update</button></td>
                     </tr>
                     <tr>
                         <td>AJ's Coffee</td>
@@ -43,7 +55,7 @@ const RestaurantList = (props) => {
                         <td>2 stars!</td>
                         <td><button className="btn btn-warning">Update</button></td>
                         <td><button className="btn btn-danger">Delete</button></td>
-                    </tr>
+                    </tr> */}
                 </tbody>
             </table>
             

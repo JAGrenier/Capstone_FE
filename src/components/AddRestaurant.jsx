@@ -1,18 +1,53 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
+import RestaurantFinder from "../apis/RestaurantFinder"
+import { RestaurantsContext } from '../Context/RestaurantsContext'
 
 const AddRestaurant = () => {
+    const {addRestaurants} = useContext(RestaurantsContext);
+    const [name, setName] = useState("")
+    const [location, setLocation] = useState("")
+    const [priceRange, setPriceRange] = useState("Price Range")
+    const handleSubmit = async (event) => {
+        event.preventDefault()
+        try{ 
+            const response = await RestaurantFinder.post("/", {
+                name, 
+                location,
+                price_range: priceRange
+            });
+            addRestaurants(response.data.data.restaurant)
+            console.log(response)
+        } catch (err){
+
+        }
+    }
     return (
         <div className="mb-4">
             <form action="">
                 <div className="form-row">
                 <div className="col">
-                    <input type="text" className="form-control" placeholder="name" />
+                    <input 
+                    type="text" 
+                    value={name} 
+                    onChange={e => setName(e.target.value)} 
+                    className="form-control" 
+                    placeholder="name" />
                 </div>
                 <div className="col">
-                    <input className="form-control" type="text" placeholder="location" />
+                    <input 
+                    value={location} 
+                    onChange={e => setLocation(e.target.value)} 
+                    className="form-control" 
+                    type="text" 
+                    placeholder="location" 
+                    />
                 </div>
                 <div className="col">
-                    <select className="customer-select my-1 mr-sm-2">
+                    <select 
+                    value={priceRange} 
+                    onChange={(e) => setPriceRange(e.target.value)} 
+                    className="customer-select my-1 mr-sm-2"
+                    >
                         <option disabled>Price Range</option>
                         <option value="1">$</option>
                         <option value="2">$$</option>
@@ -21,7 +56,7 @@ const AddRestaurant = () => {
                         <option value="5">$$$$$</option>
                     </select>
                 </div>
-                <button className="btn btn-primary">Add</button>
+                <button type="submit" onClick={handleSubmit} className="btn btn-primary">Add</button>
                 </div>
             </form>
         </div>
