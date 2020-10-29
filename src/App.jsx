@@ -5,6 +5,7 @@ import { RestaurantsContext, RestaurantsContextProvider } from './Context/Restau
 import Home from './routes/Home';
 import RestaurantDetailsPage from './routes/RestaurantDetailsPage';
 import UpdatePage from './routes/UpdatePage';
+import "./App.css"
 
 
 const App = () => {

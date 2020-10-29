@@ -1,0 +1,13 @@
+:root{
+    --orange: #e78200ff;
+    --black: #292929;
+    --grey: #525252ff;
+    --yellow: #fbe888ff;
+    --white: #fff9ebff;
+    --red: #dd1c1aff;
+}
+
+body{ 
+    background: var(--white);
+    color: var(--black);
+}
