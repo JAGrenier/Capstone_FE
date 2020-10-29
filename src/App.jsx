@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import RestaurantList from './components/RestaurantList';
+// import RestaurantList from './components/RestaurantList';
 import { RestaurantsContext, RestaurantsContextProvider } from './Context/RestaurantsContext';
 import Home from './routes/Home';
 import RestaurantDetailsPage from './routes/RestaurantDetailsPage';
