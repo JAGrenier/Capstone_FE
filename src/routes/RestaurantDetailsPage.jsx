@@ -20,7 +20,6 @@ const RestaurantDetailsPage = (props) => {
             }
         }
         fetchData();
-       
     },[])
     return(
         <div>
@@ -34,7 +33,6 @@ const RestaurantDetailsPage = (props) => {
                 </>
             )}
         </div>
-
     ) 
 };
 
