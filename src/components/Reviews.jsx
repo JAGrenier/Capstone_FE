@@ -15,6 +15,7 @@ const Reviews = ({reviews}) => {
                             <span><StarRating rating={review.rating} /></span>
                         </div>
                         <div className="card-body">
+                            <p>{review.disability_category}</p>
                             <p className="card-text">{review.review}</p>
                         </div>
                     </div> 

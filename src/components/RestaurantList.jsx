@@ -12,11 +12,10 @@ const RestaurantList = (props) => {
             try{
                 const response = await RestaurantFinder.get("/")
                 setRestaurants(response.data.data.restaurants)
-               
             } catch (err) {}  
         }
         fetchData(); 
-    },[])
+    },[setRestaurants])
 
     const handleDelete = async (event, id) => {
         event.stopPropagation()
@@ -65,22 +64,6 @@ const RestaurantList = (props) => {
                             </tr>
                         )
                     })}
-                    {/* <tr>
-                        <td>Jenn's Bagels</td>
-                        <td>RiNo</td>
-                        <td>$$</td>
-                        <td>5 stars!</td>
-                        <td><button className="btn btn-warning">Update</button></td>
-                        <td><button className="btn btn-warning">Update</button></td>
-                    </tr>
-                    <tr>
-                        <td>AJ's Coffee</td>
-                        <td>Capital Hill</td>
-                        <td>$</td>
-                        <td>2 stars!</td>
-                        <td><button className="btn btn-warning">Update</button></td>
-                        <td><button className="btn btn-danger">Delete</button></td>
-                    </tr> */}
                 </tbody>
             </table>
             
