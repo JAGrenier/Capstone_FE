@@ -61,20 +61,20 @@ const RestaurantList = (props) => {
                         <th scope="col">Location</th>
                         <th scope="col">Price Range</th>
                         <th scope="col">Ratings</th>
-                        <th scope="col">Edit</th>
-                        <th scope="col">Delete</th>
+                        <th scope="col">Add a Review</th>
+                        <th scope="col">See All Reviews</th>
                     </tr>
                 </thead>
                 <tbody> 
                     {restaurants && restaurants.map((restaurant) => {
                         return(
-                            <tr onClick={() => handleRestaurantSelect(restaurant.id)} key={restaurant.id}>
+                            <tr>
                                 <td>{restaurant.name}</td>
                                 <td>{restaurant.location}</td>
                                 <td>{"$".repeat(restaurant.price_range)}</td>
                                 <td>{renderRating(restaurant)}</td>
-                                <td><button onClick={(event) => handleUpdate(event, restaurant.id)} className="btn btn-warning">Update</button></td>
-                                <td><button onClick={(event) => handleDelete(event, restaurant.id)} className="btn btn-danger">Delete</button></td>
+                                <td><button onClick={() => handleRestaurantSelect(restaurant.id)} key={restaurant.id} className="btn btn-warning">Add a Review</button></td>
+                                <td><button onClick={(event) => handleDelete(event, restaurant.id)} className="btn btn-warning">View Reviews</button></td>
                             </tr>
                         )
                     })}

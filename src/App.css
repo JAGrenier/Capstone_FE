@@ -11,3 +11,8 @@ body{
     background: var(--white);
     color: var(--black);
 }  
+
+.header-image{
+    width: 100%;
+    height: auto;
+}
