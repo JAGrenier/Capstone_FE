@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import RestaurantFinder from '../apis/RestaurantFinder'
 import AddReview from '../components/AddReview'
 import Reviews from '../components/Reviews'
@@ -35,6 +35,7 @@ const RestaurantDetailsPage = (props) => {
                     <Reviews reviews={selectedRestaurant.reviews} />
                     </div>
                     <AddReview />
+                    <Link to="/restaurants">Return to All Restaurants</Link>
                 </>
             )}
         </div>
