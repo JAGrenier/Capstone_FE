@@ -111,7 +111,10 @@ const SignUp = ({ history }) => {
               Sign Up
             </Button>
             <Grid container>
-              <Grid item xs>
+            <Grid item xs>
+                <Link href="/" variant="body2">
+                Already Registered? 
+                </Link>
               </Grid>
               <Grid item>
               </Grid>
