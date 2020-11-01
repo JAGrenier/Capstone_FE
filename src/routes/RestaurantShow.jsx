@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import AddRestaurant from '../components/AddRestaurant'
 import Header from '../components/Header'
 import RestaurantList from '../components/RestaurantList'
