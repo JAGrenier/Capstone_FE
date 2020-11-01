@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import parse from 'autosuggest-highlight/parse';
 import throttle from 'lodash/throttle';
+import { Button } from '@material-ui/core';
 
 function loadScript(src, position, id) {
     if (!position) {
@@ -92,6 +93,7 @@ React.useEffect(() => {
 }, [value, inputValue, fetch]);
 
 return (
+    <>
     <Autocomplete
         id="google-map-demo"
         style={{ width: 300 }}
@@ -138,5 +140,7 @@ return (
             );
             }}
         />
+        <Button variant="contained">Default</Button>
+        </>
     );
 }
