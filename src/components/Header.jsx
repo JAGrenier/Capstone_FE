@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 import Logo from '../Logo.png'
-import Navbar from 'react-bootstrap/Navbar'
 import styled from 'styled-components';
 import app from "../base"
+import Button from '@material-ui/core/Button';
 
 
 export default class NavBar extends Component {
@@ -12,9 +12,14 @@ export default class NavBar extends Component {
             <NavWrapper className="navbar navbar-expand-sm px-sm-5">
                 <img src={Logo} className="logo" alt="logo"/>
                 <Link to="/" >
-                <button onClick ={() => app.auth().signOut()} to="/">Sign Out</button>
+                    <Button  
+                    fullWidth
+                    variant="contained"
+                    color="primary" 
+                    onClick ={() => app.auth().signOut()} to="/">
+                    Sign Out
+                    </Button>
                 </Link>
-                 
             </NavWrapper>
         );
     }
