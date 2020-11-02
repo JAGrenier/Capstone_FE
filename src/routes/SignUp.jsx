@@ -1,7 +1,6 @@
-import React, { useCallback, useContext } from "react";
-import { withRouter, Redirect } from "react-router";
+import React, { useCallback } from "react";
+import { withRouter } from "react-router";
 import app from "../base";
-import { AuthContext } from "../Context/auth";
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -11,7 +10,6 @@ import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import logo from '../Logo.png'
@@ -62,7 +60,7 @@ const SignUp = ({ history }) => {
   }, [history]);
 
   const classes = useStyles();
-  const { currentUser } = useContext(AuthContext);
+ 
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -70,7 +68,7 @@ const SignUp = ({ history }) => {
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
-          <img src={logo} />
+          <img src={logo} alt="Socially Accessible Denver Logo, wheelchair icon in front of orange outline skyline" />
           <Typography component="h1" variant="h5">
             Sign Up
           </Typography>
