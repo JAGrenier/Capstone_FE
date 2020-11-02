@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
-import{ withGoogleMap, GoogleMap } from 'react-google-maps';
+import{ GoogleMap, LoadScript} from '@react-google-maps/api';
 
-class Map extends Component {
-    render() {
-        const GoogleMapExample = withGoogleMap(props => (
-           <GoogleMap
-             defaultCenter = { { lat: 39.7365, lng: -104.991531} }
-             defaultZoom = { 12 }
-           >
-           </GoogleMap>
-        ));
-        return(
-           <div>
-             <GoogleMapExample
-               containerElement={ <div style={{ height: `40rem`, width: '40rem'}} /> }
-               mapElement={ <div style={{ height: `100%` }} /> }
-             />
-           </div>
-        );
-        }
-     };
+const Map = () => {
+    const mapStyles = {        
+      height: "100vh",
+      width: "100%"};
+    
+    const defaultCenter = {
+      lat: 41.3851, lng: 2.1734
+    }
+    
+    return (
+       <LoadScript
+         googleMapsApiKey='process.env.REACT_APP_GOOGLE_API_KEY'>
+          <GoogleMap
+            mapContainerStyle={mapStyles}
+            zoom={13}
+            center={defaultCenter}
+          />
+       </LoadScript>
+    )
+  }
 export default Map;
