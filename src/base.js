@@ -9,7 +9,8 @@ const app = firebase.initializeApp({
         storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
         messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID,
         appId: process.env.REACT_APP_FIREBASE_APP_ID,
-        measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
+        measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
+        googleMaps: process.env.REACT_APP_GOOGLE_API_KEY
    
 })
 
