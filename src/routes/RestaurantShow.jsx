@@ -10,12 +10,12 @@ function RestaurantShow() {
     return (
         <div>
             <Header />
-            <Map />
+            {/* <Map /> */}
             <h1>View all Restaurants with reviews</h1>
             <RestaurantList />
-            <h1>Add a restaurant</h1>
+            {/* <h1>Add a restaurant</h1>
             <GoogleForm />
-            <AddRestaurant />
+            <AddRestaurant /> */}
         </div>
     )
 }
