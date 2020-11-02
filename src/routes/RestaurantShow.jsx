@@ -9,13 +9,11 @@ import Map from '../components/Map'
 function RestaurantShow() {
     return (
         <div>
+          
             <Header />
-            <Map />
-            <h1>View all Restaurants with reviews</h1>
+            {/* <GoogleForm /> */}
             <RestaurantList />
-            <h1>Add a restaurant</h1>
-            <GoogleForm />
-            <AddRestaurant />
+           
         </div>
     )
 }

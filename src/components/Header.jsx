@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
-import Logo from '../Logo.png'
+import LogoTextRight from '../Logo.png';
 import styled from 'styled-components';
 import app from "../base"
 import Button from '@material-ui/core/Button';
@@ -10,7 +10,8 @@ export default class NavBar extends Component {
     render() {
         return (
             <NavWrapper className="navbar navbar-expand-sm px-sm-5">
-                <img src={Logo} className="logo" alt="logo"/>
+                <img src={LogoTextRight} className="logo" alt="logo" />
+                <h1> Socially Accessible Denver</h1>
                 <Link to="/" >
                     <Button  
                     fullWidth

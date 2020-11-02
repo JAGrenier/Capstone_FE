@@ -5,6 +5,7 @@ import AddReview from '../components/AddReview'
 import Reviews from '../components/Reviews'
 import StarRating from '../components/StarRating'
 import { RestaurantsContext } from '../Context/RestaurantsContext'
+import Header from '../components/Header'
 
 const RestaurantDetailsPage = (props) => {
     const {id} = useParams()
@@ -23,6 +24,7 @@ const RestaurantDetailsPage = (props) => {
     },[])
     return(
         <div>
+            <Header />
             {selectedRestaurant && (
                 <>
                 <h1 className="text-center display-4">{selectedRestaurant.restaurant.name}</h1>
