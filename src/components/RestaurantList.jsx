@@ -15,7 +15,7 @@ import { red } from "@material-ui/core/colors";
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        maxWidth: 345,
+        maxWidth:1000,
         flexGrow: 1,
     },
     media: {
@@ -34,11 +34,6 @@ const useStyles = makeStyles((theme) => ({
     },
     avatar: {
         backgroundColor: red[500]
-    },
-    paper: {
-        padding: theme.spacing(1),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
     },
 }));
 
@@ -84,38 +79,50 @@ const RestaurantList = (props) => {
 
     return (
         <div className={classes.root}> 
-        <Grid container spacing={1}>
-        <Grid container item xs={12} spacing={3}>
+        <Grid 
+        container 
+        spacing={2}
+        direction="row"
+        justify="flex-start"
+        alignItems="flex-start"
+        >
+        
                     {restaurants && restaurants.map((restaurant) => {
                         return(
                             <>
-                           
-                                <Card  >
-                                    <CardHeader
-                                        title={restaurant.name}
+                        <Grid 
+                        item 
+                        xs={12}
+                        sm={6}
+                        md={3}
+                        >
+                            <Card>
+                                <CardHeader
+                                    title={restaurant.name}
+                                    />
+                                        <CardMedia
+                                        className={classes.media}
+                                        image="https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1525&q=80jpg"
+                                        title="Paella dish"
                                         />
-                                            <CardMedia
-                                            className={classes.media}
-                                            image="https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1525&q=80jpg"
-                                            title="Paella dish"
-                                            />
-                                                <CardContent>
-                                                    <Typography variant="body2" color="textSecondary" component="p">
-                                                    <span>{renderRating(restaurant)}</span>
-                                                    </Typography>
-                                                </CardContent>
-                                    <Button 
-                                        variant="contained"
-                                        color="secondary"  
-                                        onClick={() => handleRestaurantSelect(restaurant.id)} 
-                                        key={restaurant.id}>
-                                    Views Details
-                                    </Button>
-                                </Card>
-                            </>      
+                                            <CardContent>
+                                                <Typography variant="body2" color="textSecondary" component="p">
+                                                <span>{renderRating(restaurant)}</span>
+                                                </Typography>
+                                            </CardContent>
+                                <Button 
+                                    variant="contained"
+                                    color="secondary"  
+                                    onClick={() => handleRestaurantSelect(restaurant.id)} 
+                                    key={restaurant.id}>
+                                Views Details
+                                </Button>
+                            </Card>
+                            </Grid>
+                            </>
                         )
                     })}
-            </Grid>
+            
             </Grid>
         </div>
     )
