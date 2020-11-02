@@ -83,12 +83,13 @@ const RestaurantList = (props) => {
     };
 
     return (
-        <div className={classes.root}>
+        <div className={classes.root}> 
+        <Grid container spacing={1}>
+        <Grid container item xs={12} spacing={3}>
                     {restaurants && restaurants.map((restaurant) => {
                         return(
                             <>
-                            <Grid container spacing={1}>
-                                <Grid container item xs={12} spacing={3}>
+                           
                                 <Card  >
                                     <CardHeader
                                         title={restaurant.name}
@@ -111,12 +112,11 @@ const RestaurantList = (props) => {
                                     Views Details
                                     </Button>
                                 </Card>
-                                </Grid>
-                            </Grid>
-                            </>
+                            </>      
                         )
                     })}
-            
+            </Grid>
+            </Grid>
         </div>
     )
 }
