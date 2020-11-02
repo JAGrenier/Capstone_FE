@@ -8,6 +8,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import parse from 'autosuggest-highlight/parse';
 import throttle from 'lodash/throttle';
 import { Button } from '@material-ui/core';
+import{ GoogleMap, LoadScript} from '@react-google-maps/api';
 
 function loadScript(src, position, id) {
     if (!position) {
@@ -36,6 +37,13 @@ export default function GoogleMaps() {
     const [inputValue, setInputValue] = React.useState('');
     const [options, setOptions] = React.useState([]);
     const loaded = React.useRef(false);
+    const mapStyles = {        
+        height: "100vh",
+        width: "100%"};
+      
+      const defaultCenter = {
+        lat: 39.7365, lng: -104.9900
+      } 
 
     if (typeof window !== 'undefined' && !loaded.current) {
     if (!document.querySelector('#google-maps')) {
@@ -141,6 +149,11 @@ return (
             }}
         />
         <Button variant="contained">Default</Button>
+        <GoogleMap
+            mapContainerStyle={mapStyles}
+            zoom={13}
+            center={defaultCenter}
+          />
         </>
     );
 }
