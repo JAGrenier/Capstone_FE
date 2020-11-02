@@ -14,24 +14,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import logo from '../Logo.png'
-import { createMuiTheme } from '@material-ui/core/styles';
 
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      light: '#757ce8',
-      main: '#3f50b5',
-      dark: '#002884',
-      contrastText: '#fff',
-    },
-    secondary: {
-      light: '#ff7961',
-      main: '#f44336',
-      dark: '#ba000d',
-      contrastText: '#000',
-    },
-  },
-});
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -95,7 +78,7 @@ function Login ({history}) {
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
-          <img src={logo} />
+          <img src={logo} alt="Socially Accessible Denver Logo, wheelchair icon in front of orange outline skyline" />
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
@@ -137,12 +120,12 @@ function Login ({history}) {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
+                <Link href="#" variant="body2" color="textPrimary">
                   Forgot password?
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="/SignUp" variant="body2">
+                <Link href="/SignUp" variant="body2" color="textPrimary">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
