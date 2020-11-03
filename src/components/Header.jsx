@@ -11,7 +11,7 @@ export default class NavBar extends Component {
         return (
             <NavWrapper className="navbar navbar-expand-sm px-sm-5">
                 <img src={LogoTextRight} className="logo" alt="logo" />
-                <h1> Socially Accessible Denver</h1>
+                <h1 className="header-text"> Socially Accessible Denver</h1>
                 <Link to="/" >
                     <Button  
                     fullWidth

@@ -11,11 +11,26 @@ body{
     background: var(--white);
     color: var(--black);
 }  
-
 .header-image{
     width: 50%;
     height: auto;
 }
-
+.header-text{
+    font-size: 2em;
+}
+.search {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 15rem;
+    z-index: 10;
+}
+.search input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    width: 100%;
+}
 
 
