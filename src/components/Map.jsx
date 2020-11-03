@@ -51,13 +51,13 @@ export default function Map() {
         mapRef.current = map;
     }, []);
 
+    const panTo = React.useCallback(({lat, lng}) => {
+            mapRef.current.panTo({ lat, lng });
+            mapRef.current.setZoom(16);
+        }, []);
+
     if (loadError) return "Error Loading Maps";
     if (!isLoaded) return "Loading Maps";
-
-    // const panTo = React.useCallback(({lat, lng}) => {
-    //     mapRef.current.panTo({ lat, lng });
-    //     mapRef.current.setZoom(14);
-    // }, []);
         
     return (
         <div >
@@ -69,7 +69,8 @@ export default function Map() {
             onClick={onMapClick}
             onLoad={onMapLoad}
             >
-                <Search />
+                <Search panTo={panTo} />
+                <Locate panTo={panTo} />
                 {markers.map((marker) =>  
                     <Marker 
                         key={`${marker.lat}-${marker.lng}`}
@@ -99,7 +100,27 @@ export default function Map() {
     )
 }
 
-function Search({ panTo }) {
+function Locate({panTo}){
+    return (
+        <button className="locate" onClick={() => {
+            navigator.geolocation.getCurrentPosition(
+                (position) =>{
+                    console.log(position)
+                    panTo({
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude,
+                    })
+                }, 
+                () => null,
+            );
+        }}
+        >
+            Locations Near Me
+        </button>
+    )
+}
+
+function Search({panTo}) {
     const {
         ready,
         value,
