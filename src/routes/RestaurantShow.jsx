@@ -10,7 +10,7 @@ function RestaurantShow() {
         <div>
           
             <Header />
-            <GoogleForm />
+            {/* <GoogleForm /> */}
             <RestaurantList />
            
         </div>

@@ -1,26 +1,89 @@
 import React from 'react'
 import StarRating from './StarRating'
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
+import { red } from '@material-ui/core/colors';
+import Grid from '@material-ui/core/Grid'
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+      maxWidth: 1000,
+    },
+    media: {
+      height: 0,
+      paddingTop: '56.25%', // 16:9
+    },
+    expand: {
+      transform: 'rotate(0deg)',
+      marginLeft: 'auto',
+      transition: theme.transitions.create('transform', {
+        duration: theme.transitions.duration.shortest,
+      }),
+    },
+    expandOpen: {
+      transform: 'rotate(180deg)',
+    },
+    avatar: {
+      backgroundColor: red[500],
+    },
+  }));
 
 const Reviews = ({reviews}) => {
+    
+    const classes = useStyles();
+    const [expanded, setExpanded] = React.useState(false);
+
+    const handleExpandClick = () => {
+    setExpanded(!expanded);
+    };
+    
     return (
-        <div className="row row-cols-3 mb-2">
+        <div className={classes.root}>
+            <Grid 
+        container 
+        spacing={2}
+        direction="row"
+        justify="flex-start"
+        alignItems="flex-start"
+        >
             {reviews.map((review) => {
+                console.log(review)
                 return ( 
-                    <div 
-                    key={review.id}
-                    className="card text-white bg-primary mb-3 mr-4" 
-                    style={{maxWidth: "30%"}}>
-                        <div className="card-header d-flex justify-content-between">
-                            <span>{review.name}</span>
-                            <span><StarRating rating={review.rating} /></span>
-                        </div>
-                        <div className="card-body">
-                            <p>{review.disability_category}</p>
-                            <p className="card-text">{review.review}</p>
-                        </div>
-                    </div> 
+                <>
+                    <Grid 
+                        item 
+                        xs={12}
+                        sm={6}
+                        md={3}
+                        key={review.id}
+                        >
+                        <Card>
+                            <CardHeader
+                                title={review.name}
+                                />
+                                    <CardMedia
+                                    className={classes.media}
+                                    image="https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1525&q=80jpg"
+                                    />
+                        
+                            <CardContent>
+                                <Typography variant="body2" color="textSecondary" component="p">
+                                    <span><StarRating rating={review.rating} /></span>
+                                </Typography>
+                                <Typography variant="body2" color="textSecondary" component="p">
+                                    <p>Review:{review.review}</p>
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                </>
                 ) 
             })}
+            </Grid>
         </div>
     )
 }
