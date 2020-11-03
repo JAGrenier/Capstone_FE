@@ -1,5 +1,6 @@
 import React from 'react'
 import "@reach/combobox/styles.css"
+import Button from '@material-ui/core/Button';
 import {
     GoogleMap, 
     useLoadScript, 
@@ -25,6 +26,10 @@ import {
     const mapContainerStyle = {
         width: '100%',
         height: '70vh',
+    };
+    const options = {
+        disableDefaultUI: true,
+        zoomControl: true,
     };
     const center ={
         lat: 39.7392, 
@@ -69,6 +74,7 @@ export default function Map() {
             center={center}
             onClick={onMapClick}
             onLoad={onMapLoad}
+            options={options}
             >
                 <Search panTo={panTo} />
                 <Locate panTo={panTo} />
@@ -90,7 +96,7 @@ export default function Map() {
                             >
                                 <div>
                                     <h2>
-                                       Location Name
+                                        Location Name
                                     </h2>
                                     <p>review highlights</p>
                                 </div>
@@ -103,7 +109,10 @@ export default function Map() {
 
 function Locate({panTo}){
     return (
-        <button className="locate" onClick={() => {
+        <Button className="locate" 
+        variant="contained"
+        color="primary" 
+        onClick={() => {
             navigator.geolocation.getCurrentPosition(
                 (position) =>{
                     console.log(position)
@@ -117,7 +126,7 @@ function Locate({panTo}){
         }}
         >
             Locations Near Me
-        </button>
+        </Button>
     )
 }
 
@@ -152,7 +161,7 @@ function Search({panTo}) {
 
     return (
         <div className="search">
-            <Combobox onSelect={handleSelect}>
+            <Combobox onSelect={handleSelect} aria-label="Search for a location">
                 <ComboboxInput
                     value={value}
                     onChange={handleInput}
