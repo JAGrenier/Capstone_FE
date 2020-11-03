@@ -60,7 +60,7 @@ export default function Map() {
     // }, []);
         
     return (
-        <div>
+        <div >
             
             <GoogleMap 
             mapContainerStyle={mapContainerStyle} 
@@ -79,8 +79,7 @@ export default function Map() {
                         }}
                     /> 
                     )}
-                    {/* lat: selected.lat, lng: selected.lng */}
-                        {selected ? (
+                        {selected.lat ? (
                             <InfoWindow
                                 position={{lat: selected.lat, lng: selected.lng}} 
                                 onCloseClick={() => {
@@ -125,7 +124,7 @@ function Search({ panTo }) {
             const { lat, lng } = await getLatLng(results[0]);
             panTo({ lat, lng });
         } catch (error) {
-            console.log("😱 Error: ", error);
+            console.log("error", error);
         }
         };
 
@@ -136,7 +135,7 @@ function Search({ panTo }) {
                     value={value}
                     onChange={handleInput}
                     disabled={!ready}
-                    placeholder="Search your location"
+                    placeholder="Search for a Restaurant Name"
                     />
                 <ComboboxPopover>
                     <ComboboxList style={{backgroundColor: "white"}}>

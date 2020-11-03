@@ -1,7 +1,6 @@
 import React from 'react'
 import Header from '../components/Header'
 import RestaurantList from '../components/RestaurantList'
-import GoogleForm from '../components/GoogleForm'
 import  Map from '../components/Map'
 
 
@@ -12,8 +11,8 @@ function RestaurantShow() {
           
             <Header />
             <Map />
-            {/* <GoogleForm /> */}
-            {/* <RestaurantList /> */}
+            <br></br>
+            <RestaurantList />
            
         </div>
     )
