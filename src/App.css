@@ -1,16 +1,7 @@
-:root{
-    --orange: #e78200ff;
-    --black: #292929;
-    --grey: #525252ff;
-    --yellow: #fbe888ff;
-    --white: #F5F5F5;
-    --red: #dd1c1aff;
-}
-
-body{ 
+/* body{ 
     background: var(--white);
     color: var(--black);
-}  
+}   */
 .header-image{
     width: 50%;
     height: auto;
@@ -32,12 +23,11 @@ body{
     font-size: 1rem;
     width: 100%;
 }
+
 .locate {
     position: absolute;
+    right: 0;
     top: 1rem;
-    right: 1rem;
-    background: none;
-    border: none;
     z-index: 10;
 }
 

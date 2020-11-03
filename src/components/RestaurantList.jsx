@@ -43,14 +43,13 @@ const RestaurantList = (props) => {
     }
 
     const renderRating = (restaurant) => {
-        // console.log(restaurant)
         if(!restaurant.count){
-            return <span className='text-warning'>0 reviews</span>
+            return <span color='primary'>0 reviews</span>
         }
         return(
             <>
                 <StarRating rating={restaurant.average_rating} key={restaurant.id} />
-                <span className="text-warning ml-1">({restaurant.count})</span>
+                <span color="primary">({restaurant.count})</span>
             </>
         ) 
     }
@@ -80,14 +79,14 @@ const RestaurantList = (props) => {
                             <Card>
                                 <CardHeader
                                     title={restaurant.name}
+                                    key={restaurant.name}
                                     />
                                         <CardMedia
                                         className={classes.media}
                                         image="https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1525&q=80jpg"
-                                        title="Paella dish"
                                         />
                                             <CardContent>
-                                                <Typography variant="body2" color="textSecondary" component="p">
+                                                <Typography variant="body2" color="textPrimary" component="p">
                                                 <span>{renderRating(restaurant)}</span>
                                                 </Typography>
                                             </CardContent>
