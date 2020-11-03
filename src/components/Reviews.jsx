@@ -35,11 +35,6 @@ const useStyles = makeStyles((theme) => ({
 const Reviews = ({reviews}) => {
     
     const classes = useStyles();
-    const [expanded, setExpanded] = React.useState(false);
-
-    const handleExpandClick = () => {
-    setExpanded(!expanded);
-    };
     
     return (
         <div className={classes.root}>

@@ -11,7 +11,6 @@ import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-import { red } from "@material-ui/core/colors";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -21,16 +20,6 @@ const useStyles = makeStyles((theme) => ({
     media: {
         height: 0,
         paddingTop: "56.25%" // 16:9
-    },
-    expand: {
-        transform: "rotate(0deg)",
-        marginLeft: "auto",
-        transition: theme.transitions.create("transform", {
-        duration: theme.transitions.duration.shortest
-        })
-    },
-    expandOpen: {
-        transform: "rotate(180deg)"
     },
 }));
 
@@ -68,11 +57,6 @@ const RestaurantList = (props) => {
 
     
     const classes = useStyles();
-    const [expanded, setExpanded] = React.useState(false);
-
-    const handleExpandClick = () => {
-        setExpanded(!expanded);
-    };
 
     return (
         <div className={classes.root}> 

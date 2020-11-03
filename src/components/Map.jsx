@@ -1,4 +1,5 @@
 import React from 'react'
+import "@reach/combobox/styles.css"
 import {
     GoogleMap, 
     useLoadScript, 
@@ -18,9 +19,9 @@ import {
 } from "@reach/combobox";
 
 
-// import "@reach/combobox/styles.css"
- const libraries = ["places"]
- const types = ["establishment"]
+
+    const libraries = ["places"]
+    const types = ["establishment"]
     const mapContainerStyle = {
         width: '100%',
         height: '70vh',
