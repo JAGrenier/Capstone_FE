@@ -1,24 +1,152 @@
-import React, { Component } from 'react';
-import{ GoogleMap, LoadScript} from '@react-google-maps/api';
+import React from 'react'
+import {
+    GoogleMap, 
+    useLoadScript, 
+    Marker,
+    InfoWindow,
+} from '@react-google-maps/api'
+import usePlacesAutocomplete, {
+    getGeocode,
+    getLatLng,
+} from "use-places-autocomplete";
+import {
+    Combobox,
+    ComboboxInput,
+    ComboboxPopover,
+    ComboboxList,
+    ComboboxOption,
+} from "@reach/combobox";
 
-const Map = () => {
-    const mapStyles = {        
-      height: "100vh",
-      width: "100%"};
-    
-    const defaultCenter = {
-      lat: 41.3851, lng: 2.1734
+
+// import "@reach/combobox/styles.css"
+ const libraries = ["places"]
+ const types = ["establishment"]
+    const mapContainerStyle = {
+        width: '100%',
+        height: '70vh',
+    };
+    const center ={
+        lat: 39.7392, 
+        lng: -104.9903,
     }
-    
+export default function Map() {    
+    const { isLoaded, loadError } = useLoadScript({
+        googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
+        libraries,
+        types, 
+    }); 
+    const [markers, setMarkers] = React.useState([]);
+    const [selected, setSelected] = React.useState([]);
+
+    const onMapClick = React.useCallback((event) => {
+        setMarkers(current => [...current, {
+            lat: event.latLng.lat(),
+            lng: event.latLng.lng()
+            },
+        ]);
+        },[]);
+
+    const mapRef = React.useRef();
+    const onMapLoad = React.useCallback((map) => {
+        mapRef.current = map;
+    }, []);
+
+    if (loadError) return "Error Loading Maps";
+    if (!isLoaded) return "Loading Maps";
+
+    // const panTo = React.useCallback(({lat, lng}) => {
+    //     mapRef.current.panTo({ lat, lng });
+    //     mapRef.current.setZoom(14);
+    // }, []);
+        
     return (
-       <LoadScript
-         googleMapsApiKey='process.env.REACT_APP_GOOGLE_API_KEY'>
-          <GoogleMap
-            mapContainerStyle={mapStyles}
-            zoom={13}
-            center={defaultCenter}
-          />
-       </LoadScript>
+        <div>
+            
+            <GoogleMap 
+            mapContainerStyle={mapContainerStyle} 
+            zoom={10} 
+            center={center}
+            onClick={onMapClick}
+            onLoad={onMapLoad}
+            >
+                <Search />
+                {markers.map((marker) =>  
+                    <Marker 
+                        key={`${marker.lat}-${marker.lng}`}
+                        position={{lat: marker.lat, lng: marker.lng}} 
+                        onClick ={() => {
+                            setSelected(marker);
+                        }}
+                    /> 
+                    )}
+                    {/* lat: selected.lat, lng: selected.lng */}
+                        {selected ? (
+                            <InfoWindow
+                                position={{lat: selected.lat, lng: selected.lng}} 
+                                onCloseClick={() => {
+                                    setSelected(null);
+                                }}
+                            >
+                                <div>
+                                    <h2>
+                                       Location Name
+                                    </h2>
+                                    <p>review highlights</p>
+                                </div>
+                            </InfoWindow>
+                        ) : null}
+            </GoogleMap>
+        </div>
     )
-  }
-export default Map;
+}
+
+function Search({ panTo }) {
+    const {
+        ready,
+        value,
+        suggestions: { status, data },
+        setValue,
+        clearSuggestions,
+    } = usePlacesAutocomplete({
+        requestOptions: {
+        location:  {lat: () => 39.7392, lng:() => -104.9903},
+        radius: 100 * 1000,
+      },
+    });
+    const handleInput = (e) => {
+        setValue(e.target.value);
+    };
+
+    const handleSelect = async (address) => {
+        setValue(address, false);
+        clearSuggestions();
+        try {
+            const results = await getGeocode({ address });
+            const { lat, lng } = await getLatLng(results[0]);
+            panTo({ lat, lng });
+        } catch (error) {
+            console.log("😱 Error: ", error);
+        }
+        };
+
+    return (
+        <div className="search">
+            <Combobox onSelect={handleSelect}>
+                <ComboboxInput
+                    value={value}
+                    onChange={handleInput}
+                    disabled={!ready}
+                    placeholder="Search your location"
+                    />
+                <ComboboxPopover>
+                    <ComboboxList style={{backgroundColor: "white"}}>
+                        {status === "OK" &&
+                            data.map(({ id, description }) => (
+                        <ComboboxOption key={id} value={description} />
+                    ))}
+                </ComboboxList>
+                </ComboboxPopover>
+            </Combobox>
+        </div>
+    )
+}
