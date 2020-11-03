@@ -6,6 +6,7 @@ import Reviews from '../components/Reviews'
 import StarRating from '../components/StarRating'
 import { RestaurantsContext } from '../Context/RestaurantsContext'
 import Header from '../components/Header'
+import { Button } from '@material-ui/core'
 
 const RestaurantDetailsPage = (props) => {
     const {id} = useParams()
@@ -27,17 +28,24 @@ const RestaurantDetailsPage = (props) => {
             <Header />
             {selectedRestaurant && (
                 <>
-                <h1 className="text-center display-4">{selectedRestaurant.restaurant.name}</h1>
+                <h1 className="text-center">{selectedRestaurant.restaurant.name}</h1>
                 <div className="text-center"><StarRating rating={selectedRestaurant.restaurant.average_rating}/>
-                    <span className="text-warning ml-1">
+                    <span>
                         {selectedRestaurant.restaurant.count ? `(${selectedRestaurant.restaurant.count})` : "(0)"} 
                     </span>
                 </div>
-                <div className="mt-3"> 
                     <Reviews reviews={selectedRestaurant.reviews} />
-                    </div>
+                    <Link to="/" >
+                    <Button  
+                    fullWidth
+                    variant="contained"
+                    color="primary" 
+                    to="/restaurants">
+                    Return to all reviews
+                    </Button>
+                </Link>
                     <AddReview />
-                    <Link to="/restaurants">Return to All Restaurants</Link>
+                    
                 </>
             )}
         </div>
