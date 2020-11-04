@@ -45,6 +45,7 @@ const RestaurantDetailsPage = (props) => {
                     fullWidth
                     variant="contained"
                     color="primary" 
+                    style={{maxWidth: "20%", marginTop: "1rem"}}
                     to="/restaurants">
                     Return to all reviews
                     </Button>
