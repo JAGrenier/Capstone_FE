@@ -35,11 +35,6 @@ const useStyles = makeStyles((theme) => ({
 const Reviews = ({reviews}) => {
     
     const classes = useStyles();
-    const [expanded, setExpanded] = React.useState(false);
-
-    const handleExpandClick = () => {
-    setExpanded(!expanded);
-    };
     
     return (
         <div className={classes.root}>
@@ -67,7 +62,7 @@ const Reviews = ({reviews}) => {
                                 />
                                     <CardMedia
                                     className={classes.media}
-                                    image="https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1525&q=80jpg"
+                                    image={review.image}
                                     />
                         
                             <CardContent>

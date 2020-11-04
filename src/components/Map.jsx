@@ -1,29 +1,24 @@
-import React from 'react'
-import {
-    GoogleMap, 
-    useLoadScript, 
-    Marker,
-    InfoWindow,
-} from '@react-google-maps/api'
-import usePlacesAutocomplete, {
-    getGeocode,
-    getLatLng,
-} from "use-places-autocomplete";
-import {
-    Combobox,
-    ComboboxInput,
-    ComboboxPopover,
-    ComboboxList,
-    ComboboxOption,
-} from "@reach/combobox";
+import React, {useEffect, useContext} from 'react'
+import "@reach/combobox/styles.css"
+import Button from '@material-ui/core/Button';
+import { GoogleMap, useLoadScript, Marker, InfoWindow} from '@react-google-maps/api';
+import RestaurantList from './RestaurantList';
+import AddReview from './AddReview';
+import RestaurantFinder from '../apis/RestaurantFinder'
+import { RestaurantsContext } from '../Context/RestaurantsContext'
+import Locate from "../components/MapComponents/Locate"
+import Search from "../components/MapComponents/Search"
+import MyMarkers from "./MapComponents/MyMarkers"
 
-
-// import "@reach/combobox/styles.css"
- const libraries = ["places"]
- const types = ["establishment"]
+    const libraries = ["places"]
+    const types = ["establishment"]
     const mapContainerStyle = {
         width: '100%',
         height: '70vh',
+    };
+    const options = {
+        disableDefaultUI: true,
+        zoomControl: true,
     };
     const center ={
         lat: 39.7392, 
@@ -37,11 +32,13 @@ export default function Map() {
     }); 
     const [markers, setMarkers] = React.useState([]);
     const [selected, setSelected] = React.useState([]);
+    const {restaurants, setRestaurants } = useContext(RestaurantsContext);
 
     const onMapClick = React.useCallback((event) => {
+        
         setMarkers(current => [...current, {
             lat: event.latLng.lat(),
-            lng: event.latLng.lng()
+            lng: event.latLng.lng(),
             },
         ]);
         },[]);
@@ -51,13 +48,13 @@ export default function Map() {
         mapRef.current = map;
     }, []);
 
+    const panTo = React.useCallback(({lat, lng}) => {
+            mapRef.current.panTo({ lat, lng });
+            mapRef.current.setZoom(16);
+        }, []);
+
     if (loadError) return "Error Loading Maps";
     if (!isLoaded) return "Loading Maps";
-
-    // const panTo = React.useCallback(({lat, lng}) => {
-    //     mapRef.current.panTo({ lat, lng });
-    //     mapRef.current.setZoom(14);
-    // }, []);
         
     return (
         <div >
@@ -68,84 +65,12 @@ export default function Map() {
             center={center}
             onClick={onMapClick}
             onLoad={onMapLoad}
+            options={options}
             >
-                <Search />
-                {markers.map((marker) =>  
-                    <Marker 
-                        key={`${marker.lat}-${marker.lng}`}
-                        position={{lat: marker.lat, lng: marker.lng}} 
-                        onClick ={() => {
-                            setSelected(marker);
-                        }}
-                    /> 
-                    )}
-                        {selected.lat ? (
-                            <InfoWindow
-                                position={{lat: selected.lat, lng: selected.lng}} 
-                                onCloseClick={() => {
-                                    setSelected(null);
-                                }}
-                            >
-                                <div>
-                                    <h2>
-                                       Location Name
-                                    </h2>
-                                    <p>review highlights</p>
-                                </div>
-                            </InfoWindow>
-                        ) : null}
+                <Search panTo={panTo} />
+                <Locate panTo={panTo} />
+                <MyMarkers />
             </GoogleMap>
-        </div>
-    )
-}
-
-function Search({ panTo }) {
-    const {
-        ready,
-        value,
-        suggestions: { status, data },
-        setValue,
-        clearSuggestions,
-    } = usePlacesAutocomplete({
-        requestOptions: {
-        location:  {lat: () => 39.7392, lng:() => -104.9903},
-        radius: 100 * 1000,
-      },
-    });
-    const handleInput = (e) => {
-        setValue(e.target.value);
-    };
-
-    const handleSelect = async (address) => {
-        setValue(address, false);
-        clearSuggestions();
-        try {
-            const results = await getGeocode({ address });
-            const { lat, lng } = await getLatLng(results[0]);
-            panTo({ lat, lng });
-        } catch (error) {
-            console.log("error", error);
-        }
-        };
-
-    return (
-        <div className="search">
-            <Combobox onSelect={handleSelect}>
-                <ComboboxInput
-                    value={value}
-                    onChange={handleInput}
-                    disabled={!ready}
-                    placeholder="Search for a Restaurant Name"
-                    />
-                <ComboboxPopover>
-                    <ComboboxList style={{backgroundColor: "white"}}>
-                        {status === "OK" &&
-                            data.map(({ id, description }) => (
-                        <ComboboxOption key={id} value={description} />
-                    ))}
-                </ComboboxList>
-                </ComboboxPopover>
-            </Combobox>
         </div>
     )
 }

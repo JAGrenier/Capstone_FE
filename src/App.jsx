@@ -5,7 +5,7 @@ import Home from './routes/Home';
 import SignUp from './routes/SignUp';
 import Login from './routes/Login';
 import RestaurantDetailsPage from './routes/RestaurantDetailsPage';
-import UpdatePage from './routes/UpdatePage';
+// import UpdatePage from './routes/UpdatePage';
 import "./App.css"
 import RestaurantShow from './routes/RestaurantShow';
 import { AuthProvider } from './Context/auth';
@@ -24,7 +24,7 @@ const App = () => {
                             <Route exact path="/Login" component={Login} />
                             <Route exact path="/restaurants" component={RestaurantShow} />
                             <Route  path="/restaurants/:id" component={RestaurantDetailsPage} />
-                            <Route  path="/restaurants/:id/update" component={UpdatePage} />
+                            {/* <Route  path="/restaurants/:id/update" component={UpdatePage} /> */}
                         </Switch>    
                     </Router>
                 </div>

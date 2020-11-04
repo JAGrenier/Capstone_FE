@@ -8,6 +8,7 @@ import { RestaurantsContext } from '../Context/RestaurantsContext'
 import Header from '../components/Header'
 import { Button } from '@material-ui/core'
 
+
 const RestaurantDetailsPage = (props) => {
     const {id} = useParams()
     const {selectedRestaurant, setSelectedRestaurant} = useContext(RestaurantsContext)
@@ -28,12 +29,16 @@ const RestaurantDetailsPage = (props) => {
             <Header />
             {selectedRestaurant && (
                 <>
-                <h1 className="text-center">{selectedRestaurant.restaurant.name}</h1>
-                <div className="text-center"><StarRating rating={selectedRestaurant.restaurant.average_rating}/>
-                    <span>
+                <header align="center">
+                    <h1>{selectedRestaurant.restaurant.name}</h1>
+                        <div><StarRating rating={selectedRestaurant.restaurant.average_rating}/>
+                        <span>
                         {selectedRestaurant.restaurant.count ? `(${selectedRestaurant.restaurant.count})` : "(0)"} 
-                    </span>
-                </div>
+                        </span>
+                    </div> 
+                </header>
+                
+                
                     <Reviews reviews={selectedRestaurant.reviews} />
                     <Link to="/" >
                     <Button  

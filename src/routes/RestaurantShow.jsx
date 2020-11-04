@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../components/Header'
 import RestaurantList from '../components/RestaurantList'
 import  Map from '../components/Map'
+import AddReview from '../components/AddReview'
 
 
 
