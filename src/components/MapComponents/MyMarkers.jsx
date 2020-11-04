@@ -1,11 +1,15 @@
-import React from 'react'
+import React, {Component} from 'react'
+import { Marker, InfoWindow} from '@react-google-maps/api';
 
-export default function Markers() {
-    return (
-        <div>
-            <h1>marker</h1>
-        </div>
-    )
+export default class MyMarkers extends Component {
+
+    render() {
+        return (
+            <div>
+                
+            </div>
+        )
+    }
 }
 
 // {markers.map((marker) =>  
