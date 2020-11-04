@@ -32,7 +32,6 @@ export default function Map() {
     }); 
     const [markers, setMarkers] = React.useState([]);
     const [selected, setSelected] = React.useState([]);
-    const {restaurants, setRestaurants } = useContext(RestaurantsContext);
 
     const onMapClick = React.useCallback((event) => {
         
