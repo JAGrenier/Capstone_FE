@@ -12,7 +12,7 @@ export default function Search({panTo}) {
     } = usePlacesAutocomplete({
         requestOptions: {
         location:  {lat: () => 39.7392, lng:() => -104.9903},
-        radius: 100 * 1000,
+        radius: 100,
       },
     });
     const handleInput = (e) => {
