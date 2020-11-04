@@ -8,6 +8,7 @@ import { RestaurantsContext } from '../Context/RestaurantsContext'
 import Header from '../components/Header'
 import { Button } from '@material-ui/core'
 
+
 const RestaurantDetailsPage = (props) => {
     const {id} = useParams()
     const {selectedRestaurant, setSelectedRestaurant} = useContext(RestaurantsContext)
@@ -34,8 +35,7 @@ const RestaurantDetailsPage = (props) => {
                         <span>
                         {selectedRestaurant.restaurant.count ? `(${selectedRestaurant.restaurant.count})` : "(0)"} 
                         </span>
-                    </div>
-                    <Button><i class="fas fa-share-alt"></i></Button>
+                    </div> 
                 </header>
                 
                 

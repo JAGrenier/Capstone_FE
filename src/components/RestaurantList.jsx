@@ -83,7 +83,7 @@ const RestaurantList = (props) => {
                                     />
                                         <CardMedia
                                         className={classes.media}
-                                        image="https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1525&q=80jpg"
+                                        image={restaurant.image}
                                         />
                                             <CardContent>
                                                 <Typography variant="body2" color="textPrimary" component="p">
