@@ -42,8 +42,8 @@ const Reviews = ({reviews}) => {
         container 
         spacing={2}
         direction="row"
-        justify="flex-start"
-        alignItems="flex-start"
+        justify="center"
+        alignItems="center"
         >
             {reviews.map((review) => {
                 return ( 

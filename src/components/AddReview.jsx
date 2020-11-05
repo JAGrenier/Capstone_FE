@@ -38,7 +38,7 @@ const AddReview = () => {
         <h2>Add a new Review</h2>
       <form action="">
           <div className="form-row">
-              <div className="form-group col-8">
+              <div className="form-group col-6">
                   <label htmlFor="name">Name</label>
                   <input 
                   value={name}
