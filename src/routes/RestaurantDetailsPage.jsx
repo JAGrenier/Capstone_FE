@@ -39,8 +39,8 @@ const RestaurantDetailsPage = (props) => {
                 </header>
                 
                 
-                    <Reviews reviews={selectedRestaurant.reviews} />
-                    <Link to="/" >
+                <Reviews reviews={selectedRestaurant.reviews} />
+                <Link to="/" >
                     <Button  
                     fullWidth
                     variant="contained"

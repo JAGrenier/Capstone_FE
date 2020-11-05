@@ -3,22 +3,22 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import {MuiThemeProvider, createMuiTheme } from '@material-ui/core'
 
-const theme = createMuiTheme(
-    {
-        palette: {
-            primary: {
-                main: '#f57c00',
-                light: '#ffad42',
-                dark: '#bb4d00'
-            },
-            secondary:{
-                main: '#ffb300',
-                light: '#ffe54c',
-                dark: '#c68400'
-            },
+const theme = createMuiTheme({
+    palette: {
+        primary: {
+            light: '#ffEBC2',
+            main: '#FF931F',
+            dark: '#FFAF47',
+            contrastText: '#fff',
         },
-      }
-)
+        secondary: {
+            light: '#E04B00',
+            main: '#E04B00',
+            dark: '#E04B00',
+            contrastText: '#000',
+        },
+    },
+    });
 
 
 ReactDOM.render(
