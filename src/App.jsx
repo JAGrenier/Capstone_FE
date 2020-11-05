@@ -19,12 +19,11 @@ const App = () => {
                 <div className="container">
                     <Router>
                         <Switch>
-                            <PrivateRoute exact path="/" component={Home} />
+                            <Route exact path="/" component={Home} />
                             <Route exact path="/SignUp" component={SignUp} />
                             <Route exact path="/Login" component={Login} />
-                            <Route exact path="/restaurants" component={RestaurantShow} />
-                            <Route  path="/restaurants/:id" component={RestaurantDetailsPage} />
-                            {/* <Route  path="/restaurants/:id/update" component={UpdatePage} /> */}
+                            <PrivateRoute exact path="/restaurants" component={RestaurantShow} />
+                            <PrivateRoute  exact path="/restaurants/:id" component={RestaurantDetailsPage} />
                         </Switch>    
                     </Router>
                 </div>

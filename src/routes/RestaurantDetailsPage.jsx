@@ -39,17 +39,17 @@ const RestaurantDetailsPage = (props) => {
                 </header>
                 
                 
-                    <Reviews reviews={selectedRestaurant.reviews} />
-                    <Link to="/" >
+                <Reviews reviews={selectedRestaurant.reviews} />
+                <Link to="/" >
                     <Button  
-                    fullWidth
                     variant="contained"
                     color="primary" 
+                    style={{maxWidth: "20%", marginTop: "1rem"}}
                     to="/restaurants">
                     Return to all reviews
                     </Button>
                 </Link>
-                    <AddReview />
+                <AddReview />
                     
                 </>
             )}
