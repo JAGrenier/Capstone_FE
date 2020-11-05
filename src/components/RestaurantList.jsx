@@ -12,6 +12,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 
+
 const useStyles = makeStyles((theme) => ({
     root: {
         maxWidth:1000,
@@ -92,7 +93,7 @@ const RestaurantList = (props) => {
                                             </CardContent>
                                 <Button 
                                     variant="contained"
-                                    color="secondary"  
+                                    color="primary"  
                                     onClick={() => handleRestaurantSelect(restaurant.id)} 
                                     key={restaurant.id}>
                                 Views Details

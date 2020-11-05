@@ -46,7 +46,6 @@ const Reviews = ({reviews}) => {
         alignItems="flex-start"
         >
             {reviews.map((review) => {
-                console.log(review)
                 return ( 
                 <>
                     <Grid 
@@ -70,7 +69,7 @@ const Reviews = ({reviews}) => {
                                     <span><StarRating rating={review.rating} /></span>
                                 </Typography>
                                 <Typography variant="body2" color="textSecondary" component="p">
-                                    <p>Review:{review.review}</p>
+                                    <span>{review.review}</span>
                                 </Typography>
                             </CardContent>
                         </Card>
