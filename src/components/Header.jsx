@@ -4,6 +4,7 @@ import Logo from '../Logo.png';
 import styled from 'styled-components';
 import app from "../base"
 import Button from '@material-ui/core/Button';
+// import {ButtonContainer} from "./Button";
 
 export default class NavBar extends Component {
     render() {
