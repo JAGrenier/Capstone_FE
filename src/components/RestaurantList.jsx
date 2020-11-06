@@ -11,6 +11,7 @@ import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
+import RestaurantCard from './RestaurantCard';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -78,29 +79,8 @@ const RestaurantList = (props) => {
                         sm={6}
                         md={3}
                         >
-                            <Card className="restaurant-card" > 
-                                <CardHeader
-                                    title={restaurant.name}
-                                    key={restaurant.name}
-                                    />
-                                        <CardMedia
-                                        className={classes.media}
-                                        image={restaurant.image}
-                                        />
-                                            <CardContent>
-                                                <Typography variant="body2" color="textPrimary" component="p">
-                                                <span>{renderRating(restaurant)}</span>
-                                                </Typography>
-                                            </CardContent>
-                                <Button 
-                                    className="card-button"
-                                    variant="contained"
-                                    color="primary"  
-                                    onClick={() => handleRestaurantSelect(restaurant.id)} 
-                                    key={restaurant.id}>
-                                Add Review & View Details
-                                </Button>
-                            </Card>
+                            <RestaurantCard restaurant={restaurant} />
+            
                             </Grid>
                             </>
                         )
