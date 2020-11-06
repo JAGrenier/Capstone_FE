@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     height: '100vh',
   },
   image: {
-    backgroundImage: 'url(https://images.unsplash.com/photo-1569937684608-7d8e0e05c215?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80)',
+    backgroundImage: 'url(https://images.unsplash.com/photo-1569937755776-cf7f47af4b73?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80)',
     backgroundRepeat: 'no-repeat',
     backgroundColor:
       theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
@@ -78,7 +78,7 @@ function Login ({history}) {
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
-          <img src={logo} alt="Socially Accessible Denver Logo, wheelchair icon in front of orange outline skyline" />
+          <img src={logo} alt="Socially Accessible Denver Logo, wheelchair icon in front of red outline skyline" />
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
