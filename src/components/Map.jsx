@@ -9,6 +9,7 @@ import RestaurantList from './RestaurantList';
 import RestaurantDetailsPage from '../routes/RestaurantDetailsPage'
 import { Button, Link } from '@material-ui/core';
 import StarRating from './StarRating';
+import RestaurantCard from './RestaurantCard';
 
 
     const libraries = ["places"]
@@ -95,20 +96,7 @@ export default function Map() {
                             setSelected(null); 
                         }}
                         >
-                            <h2>{selected.name}</h2>
-                            {/* <RestaurantList /> */}
-                            {/* <Link to="/restaurants/4">
-                            <Button
-                                className="card-button"
-                                variant="contained"
-                                color="primary"  
-                                // onClick={console.log(selected)}
-                                // onClick={() => handleRestaurantSelect(selected.id)} 
-                                // // key={restaurant.id}
-                                >
-                                    View/Add Review 
-                            </Button>
-                            </Link> */}
+                          <RestaurantCard restaurant={selected}/>
                     </InfoWindow>
                 )}
                 {/* {markers.map((marker) =>  
