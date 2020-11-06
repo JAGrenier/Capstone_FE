@@ -34,7 +34,6 @@
     z-index: 10;
 }
 
-.restaurant-card{
-    
-
+.map-card img {
+    max-width: 75%;
 }
