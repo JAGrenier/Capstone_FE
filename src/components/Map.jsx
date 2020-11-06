@@ -1,10 +1,6 @@
-import React, {useEffect, useContext} from 'react'
+import React, { useContext} from 'react'
 import "@reach/combobox/styles.css"
-import Button from '@material-ui/core/Button';
 import { GoogleMap, useLoadScript, Marker, InfoWindow} from '@react-google-maps/api';
-import RestaurantList from './RestaurantList';
-import AddReview from './AddReview';
-import RestaurantFinder from '../apis/RestaurantFinder'
 import { RestaurantsContext } from '../Context/RestaurantsContext'
 import Locate from "../components/MapComponents/Locate"
 import Search from "../components/MapComponents/Search"
@@ -32,6 +28,7 @@ export default function Map() {
     }); 
     const [markers, setMarkers] = React.useState([]);
     const [selected, setSelected] = React.useState([]);
+    const {restaurants, setRestaurants } = useContext(RestaurantsContext);
 
     const onMapClick = React.useCallback((event) => {
         
@@ -57,7 +54,6 @@ export default function Map() {
         
     return (
         <div >
-            
             <GoogleMap 
             mapContainerStyle={mapContainerStyle} 
             zoom={10} 
@@ -68,8 +64,23 @@ export default function Map() {
             >
                 <Search panTo={panTo} />
                 <Locate panTo={panTo} />
-                <MyMarkers />
+                {/* <Marker 
+                 position={{
+                    lat: 39.685431,
+                    lng: -104.980155
+                }}
+                /> */}
+                {restaurants.map((restaurant) => ( 
+                    <Marker 
+                        
+                        position={{
+                            lat: parseFloat(restaurant.lat),
+                            lng: parseFloat(restaurant.lng)
+                        }}
+                    />
+                ))}
             </GoogleMap>
         </div>
     )
 }
+
