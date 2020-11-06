@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         maxWidth:1000,
         flexGrow: 1,
+        alignItems: "center"
     },
     media: {
         height: 0,
@@ -77,7 +78,7 @@ const RestaurantList = (props) => {
                         sm={6}
                         md={3}
                         >
-                            <Card>
+                            <Card className="restaurant-card" > 
                                 <CardHeader
                                     title={restaurant.name}
                                     key={restaurant.name}
@@ -92,11 +93,12 @@ const RestaurantList = (props) => {
                                                 </Typography>
                                             </CardContent>
                                 <Button 
+                                    className="card-button"
                                     variant="contained"
                                     color="primary"  
                                     onClick={() => handleRestaurantSelect(restaurant.id)} 
                                     key={restaurant.id}>
-                                Views Details
+                                Add Review & View Details
                                 </Button>
                             </Card>
                             </Grid>

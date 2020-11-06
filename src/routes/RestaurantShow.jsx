@@ -7,12 +7,10 @@ import  Map from '../components/Map'
 function RestaurantShow() {
     return (
         <div>
-          
             <Header />
             <Map />
             <br></br>
             <RestaurantList />
-           
         </div>
     )
 }

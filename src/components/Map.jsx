@@ -1,13 +1,18 @@
-import React, { useContext} from 'react'
+import React, { useState, useContext, useHistory} from 'react'
 import "@reach/combobox/styles.css"
 import { GoogleMap, useLoadScript, Marker, InfoWindow} from '@react-google-maps/api';
 import { RestaurantsContext } from '../Context/RestaurantsContext'
 import Locate from "../components/MapComponents/Locate"
 import Search from "../components/MapComponents/Search"
-import MyMarkers from "./MapComponents/MyMarkers"
+import { Restaurant } from '@material-ui/icons';
+import RestaurantList from './RestaurantList';
+import RestaurantDetailsPage from '../routes/RestaurantDetailsPage'
+import { Button, Link } from '@material-ui/core';
+import StarRating from './StarRating';
+
 
     const libraries = ["places"]
-    const types = ["establishment"]
+    const type = ['restaurant']
     const mapContainerStyle = {
         width: '100%',
         height: '70vh',
@@ -24,20 +29,24 @@ export default function Map() {
     const { isLoaded, loadError } = useLoadScript({
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
         libraries,
-        types, 
+        type, 
     }); 
     const [markers, setMarkers] = React.useState([]);
-    const [selected, setSelected] = React.useState([]);
+    const [selected, setSelected] = React.useState(null);
     const {restaurants, setRestaurants } = useContext(RestaurantsContext);
-
+    
     const onMapClick = React.useCallback((event) => {
-        
+        console.log("clicked")
         setMarkers(current => [...current, {
             lat: event.latLng.lat(),
             lng: event.latLng.lng(),
             },
         ]);
         },[]);
+
+    // const handleRestaurantSelect = (id) => {
+    //     history.push(`/restaurants/${id}`)
+    // }
 
     const mapRef = React.useRef();
     const onMapLoad = React.useCallback((map) => {
@@ -64,21 +73,53 @@ export default function Map() {
             >
                 <Search panTo={panTo} />
                 <Locate panTo={panTo} />
-                {/* <Marker 
-                 position={{
-                    lat: 39.685431,
-                    lng: -104.980155
-                }}
-                /> */}
                 {restaurants.map((restaurant) => ( 
                     <Marker 
-                        
+                        key={restaurant.id}
                         position={{
                             lat: parseFloat(restaurant.lat),
                             lng: parseFloat(restaurant.lng)
                         }}
+                        onClick={() => {
+                            setSelected(restaurant);
+                        }}
                     />
                 ))}
+                {selected && (
+                    <InfoWindow
+                        position={{
+                            lat: parseFloat(selected.lat),
+                            lng: parseFloat(selected.lng)
+                        }}
+                        onCloseClick={() => {
+                            setSelected(null); 
+                        }}
+                        >
+                            <h2>{selected.name}</h2>
+                            {/* <RestaurantList /> */}
+                            {/* <Link to="/restaurants/4">
+                            <Button
+                                className="card-button"
+                                variant="contained"
+                                color="primary"  
+                                // onClick={console.log(selected)}
+                                // onClick={() => handleRestaurantSelect(selected.id)} 
+                                // // key={restaurant.id}
+                                >
+                                    View/Add Review 
+                            </Button>
+                            </Link> */}
+                    </InfoWindow>
+                )}
+                {/* {markers.map((marker) =>  
+                    <Marker 
+                        key={`${marker.lat}-${marker.lng}`}
+                        position={{lat: marker.lat, lng: marker.lng}} 
+                        onClick ={() => {
+                            setSelected(marker);
+                        }}
+                    /> 
+                )} */}
             </GoogleMap>
         </div>
     )
