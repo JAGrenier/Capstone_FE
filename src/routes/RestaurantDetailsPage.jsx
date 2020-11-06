@@ -44,9 +44,9 @@ const RestaurantDetailsPage = (props) => {
                     <Button  
                     variant="contained"
                     color="primary" 
-                    style={{maxWidth: "20%", marginTop: "1rem"}}
+                    style={{maxWidth: "10rem", marginTop: "1rem"}}
                     to="/restaurants">
-                    Return to all reviews
+                    Return to Map
                     </Button>
                 </Link>
                 <AddReview />

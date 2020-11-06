@@ -1,6 +1,5 @@
 /* body{ 
-    background: var(--white);
-    color: var(--black);
+    text-align: center;
 }   */
 :root{
     --mainRed: #ac3931;
@@ -35,4 +34,7 @@
     z-index: 10;
 }
 
+.restaurant-card{
+    
 
+}

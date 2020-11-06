@@ -13,6 +13,7 @@ export default function Search({panTo}) {
         requestOptions: {
         location:  {lat: () => 39.7392, lng:() => -104.9903},
         radius: 100,
+        types: [('establishment')]
       },
     });
     const handleInput = (e) => {
