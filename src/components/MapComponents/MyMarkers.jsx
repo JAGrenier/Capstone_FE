@@ -5,9 +5,14 @@ export default class MyMarkers extends Component {
 
     render() {
         return (
-            <div>
+            <>
+                <Marker
+                lat={39.6854310}
+                lng={-104.9801550}
+                >
+                </Marker>
                 
-            </div>
+            </>
         )
     }
 }
