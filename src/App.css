@@ -13,7 +13,7 @@
     font-size: 2em;
 }
 .search {
-    position: absolute;
+    position: relative;
     top: 1rem;
     left: 50%;
     transform: translateX(-50%);
