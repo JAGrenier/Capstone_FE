@@ -9,7 +9,7 @@ import Container from '@material-ui/core/Container';
 import Search from './MapComponents/Search';
 
 const useStyles = makeStyles((theme) => ({
- paper: {
+paper: {
     marginTop: theme.spacing(8),
     display: 'flex',
     flexDirection: 'column',
