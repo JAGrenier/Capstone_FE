@@ -20,7 +20,11 @@ import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles((theme) => ({
     root:{
-        height: '100vh'
+        height: '100vh',
+        '& .MuiTextField-root': {
+            margin: theme.spacing(1),
+            width: '25ch',
+        },
     },
     paper: {
         marginTop: theme.spacing(8),
