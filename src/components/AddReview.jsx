@@ -19,6 +19,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles((theme) => ({
+    root:{
+        height: '100vh'
+    },
     paper: {
         marginTop: theme.spacing(8),
         display: 'flex',
@@ -27,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     },
     form: {
         width: '100%', // Fix IE 11 issue.
-        marginTop: theme.spacing(3),
+        marginTop: theme.spacing(1),
     },
     submit: {
         margin: theme.spacing(3, 0, 2),
@@ -69,13 +72,15 @@ const AddReview = () => {
     
 
     return (
-        <Container component="main" maxWidth='xs'>
+        <Grid  component="main" maxWidth="xs" >
             <CssBaseline />
             <div className={classes.paper}>
-                <h2>Add a new Review</h2>
-            <form className={classes.form} noValidate>
-                <Grid container space={2} >
-                    <Grid item xs={12}>
+                <Typography component="h1" variant="h5" >
+                    Add New Review
+                </Typography>
+                <form className={classes.form} noValidate>
+                <Grid container spacing={2} >
+                    <Grid item xs={12} >
                         <TextField 
                         autoComplete="fname"
                         name="name"
@@ -111,7 +116,7 @@ const AddReview = () => {
                             </Select>
                         </FormControl>
                     </Grid>
-                    <Grid item sm={12}>
+                    <Grid item xs={12}>
                         <FormControl variant="outlined" className={classes.formControl}>
                         <InputLabel id="disability">Disability</InputLabel>
                             <Select
@@ -133,7 +138,7 @@ const AddReview = () => {
                             </Select>
                         </FormControl>
                     </Grid>
-                    <Grid item sm={12}>
+                    <Grid item xs={12}>
                             <TextField
                             id = "review"
                             label = "Review"
@@ -146,7 +151,7 @@ const AddReview = () => {
                             variant = "outlined"
                             />
                     </Grid>
-                    <Grid item sm={12}>
+                    <Grid item xs={12}>
                         <TextField 
                         name="image"
                         variant="outlined"
@@ -159,29 +164,6 @@ const AddReview = () => {
                         autoFocus
                       />
                     </Grid>
-                {/* 
-                
-            <div className="form-group col-8">
-                    <label htmlFor="image">image</label>
-                    <input 
-                    value={image}
-                    onChange={ event => setImage(event.target.value)}
-                    type="text" 
-                    id="image"
-                    placeholder="image"
-                    className="form-control" 
-                    />
-                </div>
-            <div className="form-group">
-                <label htmlFor="review">Review</label>
-                <textarea 
-                value={reviewText} 
-                onChange = {(event) => setReviewText(event.target.value)}
-                id="Review" 
-                className="form-control"
-                ></textarea>
-            </div>
-            */}
                     <Button 
                         type="submit" 
                         onClick={handleSubmitReview} 
@@ -193,7 +175,7 @@ const AddReview = () => {
                 </Grid>
             </form>
         </div>
-    </Container>
+    </Grid>
     )
 }
 
