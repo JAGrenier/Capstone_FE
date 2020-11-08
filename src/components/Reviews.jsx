@@ -8,6 +8,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import Grid from '@material-ui/core/Grid'
+import { Switch } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -35,6 +36,29 @@ const useStyles = makeStyles((theme) => ({
 const Reviews = ({reviews}) => {
     
     const classes = useStyles();
+
+    const disabilityType = (disability) =>{
+      console.log(disability)
+      switch(disability){
+        case 1:
+        return " Physical"
+        break;
+        case 2:
+        return " Cognitive"
+        break;
+        case 3:
+        return " Hearing"
+        break;
+        case 4:
+        return " Vision"
+        break;
+        case 5:
+        return " Other/Prefer not to Answer"
+        break;
+        default: 
+        return " Not Listed"
+      }
+    }
     
     return (
         <div className={classes.root}>
@@ -70,6 +94,13 @@ const Reviews = ({reviews}) => {
                                 </Typography>
                                 <Typography variant="body2" color="textSecondary" component="p">
                                     <span>{review.review}</span>
+                                </Typography>
+                                <Typography variant="body2" color="textSecondary" component="p">
+                                    <span><strong>
+                                      Disability Type of Reviewer:  
+                                      {disabilityType(review.disability)}
+                                      </strong>
+                                      </span>
                                 </Typography>
                             </CardContent>
                         </Card>
