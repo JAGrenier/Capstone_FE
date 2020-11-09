@@ -100,7 +100,6 @@ const AddReview = () => {
                                 onChange={(event) => setRating(event.target.value)}
                                 label="Rating"
                                 required
-    
                                 >
                                 <MenuItem value={1}>1 Stars</MenuItem>
                                 <MenuItem value={2}>2 Stars</MenuItem>
