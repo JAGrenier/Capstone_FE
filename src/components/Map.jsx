@@ -5,6 +5,7 @@ import { RestaurantsContext } from '../Context/RestaurantsContext'
 import Locate from "../components/MapComponents/Locate"
 import Search from "../components/MapComponents/Search"
 import RestaurantCard from './RestaurantCard';
+import AddRestaurant from './AddRestaurant';
 
 
     const libraries = ["places"]
@@ -31,15 +32,25 @@ export default function Map() {
     const [selected, setSelected] = React.useState(null);
     const {restaurants, setRestaurants} = useContext(RestaurantsContext);
     
+    const checkLocation = (selected) => {
+        console.log("selected.name",  selected.name)
+        console.log("selected",  selected)
+        console.log(restaurants)
+        if(restaurants.find(restaurant => restaurant.id === selected.id)){ 
+            return <RestaurantCard className="map-card" style={{width: '250px'}} restaurant={selected}/>
+        }else{
+            return <AddRestaurant position={{lat: selected.lat, lng: selected.lng}}  />
+        }
+    }
+
     const onMapClick = React.useCallback((event) => {
-        console.log("clicked")
         setMarkers(current => [...current, {
             lat: event.latLng.lat(),
             lng: event.latLng.lng(),
             },
         ]);
         },[]);
-
+    
     const mapRef = React.useRef();
     const onMapLoad = React.useCallback((map) => {
         mapRef.current = map;
@@ -86,11 +97,14 @@ export default function Map() {
                         onCloseClick={() => {
                             setSelected(null); 
                         }}
-                        >
-                        <RestaurantCard className="map-card" style={{width: '250px'}}restaurant={selected}/>
+                        >   
+                        {checkLocation(selected)}
+                        {/* <AddRestaurant onClick={console.log(selected)} position={{lat: selected.lat, lng: selected.lng}}  /> */}
+                        {/* <RestaurantCard className="map-card" style={{width: '250px'}}restaurant={selected}/> */}
+
                     </InfoWindow>
                 )}
-                {/* {markers.map((marker) =>  
+                {markers.map((marker) =>  
                     <Marker 
                         key={`${marker.lat}-${marker.lng}`}
                         position={{lat: marker.lat, lng: marker.lng}} 
@@ -98,9 +112,8 @@ export default function Map() {
                             setSelected(marker);
                         }}
                     /> 
-                )} */}
+                )}
             </GoogleMap>
         </div>
     )
 }
-

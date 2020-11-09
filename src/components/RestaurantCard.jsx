@@ -8,10 +8,12 @@ import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
+import AddRestaurant from './AddRestaurant';
+import { Hidden } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        // maxWidth:1000,
+        maxWidth:1000,
         flexGrow: 1,
         alignItems: "center"
     },
@@ -19,6 +21,9 @@ const useStyles = makeStyles((theme) => ({
         height: 0,
         paddingTop: "56.25%" // 16:9
     },
+    title: {
+        fontWeight: 500,
+    }
 }));
 
 export default function RestaurantCard({restaurant}) {
@@ -30,7 +35,7 @@ export default function RestaurantCard({restaurant}) {
 
     const renderRating = (restaurant) => {
         if(!restaurant.count){
-            return <span color='primary'>0 reviews</span>
+            return <span color='primary'>0 Reviews</span>
         }
         return(
             <>
@@ -41,24 +46,30 @@ export default function RestaurantCard({restaurant}) {
     }
     return (
             <div>
-                <Card className="restaurant-card" > 
+                <Card className={classes.root} > 
                     <CardHeader
+                    className={classes.title}
                     title={restaurant.name}
-                    key={restaurant.name}
-                    />
+                    disableTypography
+                    >
+                        {/* <Typography className={classes.title} > */}
+                            {/* {restaurant.name} */}
+                        {/* </Typography> */}
+                    </CardHeader>
                         <CardMedia
                         className={classes.media}
                         image={restaurant.image}
                         />
                             <CardContent>
-                                <Typography variant="body2" color="textPrimary" component="p">
+                                <Typography variant="body2" color="textPrimary" >
                                 <span>{renderRating(restaurant)}</span>
                                 </Typography>
                             </CardContent>
                     <Button 
                         className="card-button"
                         variant="contained"
-                        color="primary"  
+                        color="primary"
+                        fullWidth  
                         onClick={() => handleRestaurantSelect(restaurant.id)} 
                         key={restaurant.id}>
                         Add Review & View Details
