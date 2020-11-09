@@ -1,6 +1,6 @@
 import usePlacesAutocomplete, { getGeocode,getLatLng } from "use-places-autocomplete";
 import { Combobox, ComboboxInput,ComboboxPopover, ComboboxList, ComboboxOption} from "@reach/combobox";
-
+import { Button } from "@material-ui/core";
 
 export default function Search({panTo}) {
     const {
@@ -22,12 +22,12 @@ export default function Search({panTo}) {
 
     const handleSelect = async (address) => {
         setValue(address, false);
-        console.log(address)
         clearSuggestions();
         try {
             const results = await getGeocode({ address });
             const { lat, lng } = await getLatLng(results[0]);
             panTo({ lat, lng });
+            console.log("location", lat, lng)
         } catch (error) {
             console.log("error", error);
         }

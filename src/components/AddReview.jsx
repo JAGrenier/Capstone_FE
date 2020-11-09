@@ -4,19 +4,14 @@ import RestaurantFinder from '../apis/RestaurantFinder'
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles((theme) => ({
     root:{
@@ -33,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
     },
     form: {
-        width: '100%', // Fix IE 11 issue.
+        width: '75%', // Fix IE 11 issue.
         marginTop: theme.spacing(1),
     },
     submit: {
@@ -76,14 +71,14 @@ const AddReview = () => {
     
 
     return (
-        <Grid  component="main" maxWidth="xs" >
+        <Grid  component="main" >
             <CssBaseline />
             <div className={classes.paper}>
                 <Typography component="h1" variant="h5" >
                     Add New Review
                 </Typography>
                 <form className={classes.form} noValidate>
-                <Grid container spacing={2} >
+                <Grid container spacing={1} >
                     <Grid item xs={12} >
                         <TextField 
                         autoComplete="fname"
@@ -99,7 +94,7 @@ const AddReview = () => {
                       />
                     </Grid>
                     <Grid item xs={12}>
-                        <FormControl variant="outlined" className={classes.formControl}>
+                        <FormControl variant="outlined" style={{minWidth: 480}}className={classes.formControl}>
                         <InputLabel id="rating">Rating</InputLabel>
                             <Select
                                 labelId="rating"
@@ -107,11 +102,9 @@ const AddReview = () => {
                                 value={rating}
                                 onChange={(event) => setRating(event.target.value)}
                                 label="Rating"
-                                fullWidth
+                                required
+                                autoFocus
                                 >
-                                <MenuItem value="">
-                                <em>None</em>
-                                </MenuItem>
                                 <MenuItem value={1}>1 Stars</MenuItem>
                                 <MenuItem value={2}>2 Stars</MenuItem>
                                 <MenuItem value={3}>3 Stars</MenuItem>
@@ -120,8 +113,8 @@ const AddReview = () => {
                             </Select>
                         </FormControl>
                     </Grid>
-                    <Grid item xs={12}>
-                        <FormControl variant="outlined" className={classes.formControl}>
+                    <Grid item xs={3}>
+                        <FormControl variant="outlined" style={{minWidth: 480}} className={classes.formControl}>
                         <InputLabel id="disability">Disability</InputLabel>
                             <Select
                                 labelId="disability"
@@ -129,11 +122,9 @@ const AddReview = () => {
                                 value={disability}
                                 onChange={(event) => setDisability(event.target.value)}
                                 label="Disability"
-                                fullWidth
+                                required
+                                autoFocus
                                 >
-                                <MenuItem value="">
-                                <em>None</em>
-                                </MenuItem>
                                 <MenuItem value={1}>Physical</MenuItem>
                                 <MenuItem value={2}>Cognitive </MenuItem>
                                 <MenuItem value={3}>Hearing</MenuItem>
@@ -144,14 +135,15 @@ const AddReview = () => {
                     </Grid>
                     <Grid item xs={12}>
                             <TextField
+                            name = "review"
                             id = "review"
                             label = "Review"
                             multiline
                             rows = {8}
                             value = {reviewText}
                             onChange = {(event) => setReviewText(event.target.value)}
-                            defaultValue = "Type Your Review Here"
                             fullWidth
+                            required
                             variant = "outlined"
                             />
                     </Grid>
@@ -165,8 +157,7 @@ const AddReview = () => {
                         fullWidth
                         id="image"
                         label="Image URL"
-                        autoFocus
-                      />
+                        />
                     </Grid>
                     <Button 
                         type="submit" 
