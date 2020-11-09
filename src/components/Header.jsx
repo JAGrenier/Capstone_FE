@@ -8,7 +8,7 @@ export default class NavBar extends Component {
     render() {
         return (
             <NavWrapper className="navbar navbar-expand-sm px-sm-5">
-                <img src={Logo} className="logo" alt="Socially Accessible Logo with orange skyline and wheelchair icon" />
+                <img src={Logo} className="logo" alt="Socially Accessible Logo with red skyline and wheelchair icon" />
                 <h1 className="header-text"> Socially Accessible Denver</h1>
                     <Button  
                     variant="contained"
