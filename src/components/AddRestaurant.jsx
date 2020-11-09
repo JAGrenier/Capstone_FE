@@ -5,8 +5,6 @@ import { RestaurantsContext } from '../Context/RestaurantsContext'
 const AddRestaurant = ({position}) => {
     const {addRestaurants} = useContext(RestaurantsContext);
     const [name, setName] = useState("")
-    const [lat, setLat] = useState("")
-    const [lng, setLng] = useState("")
     const [image, setImage] = useState("")
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -35,24 +33,6 @@ const AddRestaurant = ({position}) => {
                     className="form-control" 
                     placeholder="name" />
                 </div> 
-                {/* <div className="col">
-                    <input 
-                    value={lat} 
-                    onChange={e => setLat(e.target.value)} 
-                    className="form-control" 
-                    type="text" 
-                    placeholder="lat" 
-                    />
-                <div className="col">
-                    <input 
-                    value={lng} 
-                    onChange={e => setLng(e.target.value)} 
-                    className="form-control" 
-                    type="text" 
-                    placeholder="lng" 
-                    />
-                </div>
-                </div> */}
                 <div className="col">
                     <input 
                     value={image} 

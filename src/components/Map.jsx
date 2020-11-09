@@ -33,13 +33,16 @@ export default function Map() {
     const {restaurants, setRestaurants} = useContext(RestaurantsContext);
     
     const checkLocation = (selected) => {
-        if(restaurants.includes(selected)){ 
-            <RestaurantCard className="map-card" style={{width: '250px'}}restaurant={selected}/>
+        console.log("selected.name",  selected.name)
+        console.log("selected",  selected)
+        console.log(restaurants)
+        if(restaurants.find(restaurant => restaurant.id === selected.id)){ 
+            return <RestaurantCard className="map-card" style={{width: '250px'}} restaurant={selected}/>
         }else{
-            <AddRestaurant position={{lat: selected.lat, lng: selected.lng}}  />
+            return <AddRestaurant position={{lat: selected.lat, lng: selected.lng}}  />
         }
     }
-    
+
     const onMapClick = React.useCallback((event) => {
         setMarkers(current => [...current, {
             lat: event.latLng.lat(),
@@ -91,14 +94,14 @@ export default function Map() {
                             lat: parseFloat(selected.lat),
                             lng: parseFloat(selected.lng)
                         }}
-                        onClick={checkLocation(selected.lat)}
                         onCloseClick={() => {
                             setSelected(null); 
                         }}
-                        >
-                            {/* {checkLocation(selected.lat)} */}
-                        {/* <AddRestaurant onClick={console.log(selected)} position={{lat: selected.lat, lng: selected.lng}}  />
-                        <RestaurantCard className="map-card" style={{width: '250px'}}restaurant={selected}/> */}
+                        >   
+                        {checkLocation(selected)}
+                        {/* <AddRestaurant onClick={console.log(selected)} position={{lat: selected.lat, lng: selected.lng}}  /> */}
+                        {/* <RestaurantCard className="map-card" style={{width: '250px'}}restaurant={selected}/> */}
+
                     </InfoWindow>
                 )}
                 {markers.map((marker) =>  

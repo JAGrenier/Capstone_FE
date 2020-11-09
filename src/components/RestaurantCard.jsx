@@ -8,6 +8,8 @@ import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
+import AddRestaurant from './AddRestaurant';
+import { Hidden } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -18,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
     media: {
         height: 0,
         paddingTop: "56.25%" // 16:9
+    },
+    title: {
+        fontSize: 10,
     },
 }));
 
@@ -51,7 +56,7 @@ export default function RestaurantCard({restaurant}) {
                         image={restaurant.image}
                         />
                             <CardContent>
-                                <Typography variant="body2" color="textPrimary" component="p">
+                                <Typography variant="body2" color="textPrimary" >
                                 <span>{renderRating(restaurant)}</span>
                                 </Typography>
                             </CardContent>

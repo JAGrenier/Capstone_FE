@@ -68,8 +68,6 @@ const AddReview = () => {
         }
     }
 
-    
-
     return (
         <Grid  component="main" >
             <CssBaseline />
@@ -90,8 +88,7 @@ const AddReview = () => {
                         fullWidth
                         id="name"
                         label="Name"
-                        autoFocus
-                      />
+                    />
                     </Grid>
                     <Grid item xs={12}>
                         <FormControl variant="outlined" style={{minWidth: 480}}className={classes.formControl}>
@@ -103,7 +100,7 @@ const AddReview = () => {
                                 onChange={(event) => setRating(event.target.value)}
                                 label="Rating"
                                 required
-                                autoFocus
+    
                                 >
                                 <MenuItem value={1}>1 Stars</MenuItem>
                                 <MenuItem value={2}>2 Stars</MenuItem>
@@ -123,7 +120,7 @@ const AddReview = () => {
                                 onChange={(event) => setDisability(event.target.value)}
                                 label="Disability"
                                 required
-                                autoFocus
+    
                                 >
                                 <MenuItem value={1}>Physical</MenuItem>
                                 <MenuItem value={2}>Cognitive </MenuItem>
