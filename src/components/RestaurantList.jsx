@@ -51,7 +51,7 @@ const RestaurantList = (props) => {
                         sm={6}
                         md={3}
                         >
-                            <RestaurantCard restaurant={restaurant} />
+                            <RestaurantCard key={restaurant.id+restaurant.location} restaurant={restaurant} />
                             </Grid>
                             </>
                         )

@@ -38,23 +38,17 @@ const Reviews = ({reviews}) => {
     const classes = useStyles();
 
     const disabilityType = (disability) =>{
-      console.log(disability)
       switch(disability){
         case 1:
         return " Physical"
-        break;
         case 2:
         return " Cognitive"
-        break;
         case 3:
         return " Hearing"
-        break;
         case 4:
         return " Vision"
-        break;
         case 5:
         return " Other/Prefer not to Answer"
-        break;
         default: 
         return " Not Listed"
       }
