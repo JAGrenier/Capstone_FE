@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
     },
     form: {
-        width: '75%', // Fix IE 11 issue.
+        width: '50%', // Fix IE 11 issue.
         marginTop: theme.spacing(1),
     },
     submit: {
@@ -91,7 +91,7 @@ const AddReview = () => {
                     />
                     </Grid>
                     <Grid item xs={12}>
-                        <FormControl variant="outlined" style={{minWidth: 480}}className={classes.formControl}>
+                        <FormControl variant="outlined" style={{minWidth: 551}}className={classes.formControl}>
                         <InputLabel id="rating">Rating</InputLabel>
                             <Select
                                 labelId="rating"
@@ -111,7 +111,7 @@ const AddReview = () => {
                         </FormControl>
                     </Grid>
                     <Grid item xs={3}>
-                        <FormControl variant="outlined" style={{minWidth: 480}} className={classes.formControl}>
+                        <FormControl variant="outlined" style={{minWidth: 551}} className={classes.formControl}>
                         <InputLabel id="disability">Disability</InputLabel>
                             <Select
                                 labelId="disability"
@@ -136,7 +136,7 @@ const AddReview = () => {
                             id = "review"
                             label = "Review"
                             multiline
-                            rows = {8}
+                            rows = {6}
                             value = {reviewText}
                             onChange = {(event) => setReviewText(event.target.value)}
                             fullWidth
