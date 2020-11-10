@@ -1,6 +1,5 @@
 import usePlacesAutocomplete, { getGeocode,getLatLng } from "use-places-autocomplete";
 import { Combobox, ComboboxInput,ComboboxPopover, ComboboxList, ComboboxOption} from "@reach/combobox";
-import { Button } from "@material-ui/core";
 
 export default function Search({panTo}) {
     const {
@@ -14,13 +13,14 @@ export default function Search({panTo}) {
         location:  {lat: () => 39.7392, lng:() => -104.9903},
         radius: 100,
         types: [('establishment')]
-      },
+        },
     });
     const handleInput = (e) => {
         setValue(e.target.value);
     };
 
     const handleSelect = async (address) => {
+        console.log("address", address)
         setValue(address, false);
         clearSuggestions();
         try {

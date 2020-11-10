@@ -11,9 +11,9 @@ export default class NavBar extends Component {
                 <img src={Logo} className="logo" alt="Socially Accessible Logo with red skyline and wheelchair icon" />
                 <h1 className="header-text"> Socially Accessible Denver</h1>
                     <Button  
-                    variant="contained"
-                    color="primary" 
-                    onClick ={() => {app.auth().signOut()}} 
+                        variant="contained"
+                        color="primary" 
+                        onClick ={() => {app.auth().signOut()}} 
                     >
                     Sign Out
                     </Button>
