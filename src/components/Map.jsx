@@ -6,6 +6,7 @@ import Locate from "../components/MapComponents/Locate"
 import Search from "../components/MapComponents/Search"
 import RestaurantCard from './RestaurantCard';
 import AddRestaurant from './AddRestaurant';
+import pin from '../map-pin.svg';
 
     const libraries = ["places"]
     const type = ['restaurant']
