@@ -9,7 +9,7 @@ import Header from '../components/Header'
 import { Button } from '@material-ui/core'
 
 
-const RestaurantDetailsPage = (props) => {
+const RestaurantDetailsPage = () => {
     const {id} = useParams()
     const {selectedRestaurant, setSelectedRestaurant} = useContext(RestaurantsContext)
     

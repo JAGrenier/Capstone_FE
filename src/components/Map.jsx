@@ -7,7 +7,6 @@ import Search from "../components/MapComponents/Search"
 import RestaurantCard from './RestaurantCard';
 import AddRestaurant from './AddRestaurant';
 
-
     const libraries = ["places"]
     const type = ['restaurant']
     const mapContainerStyle = {
@@ -15,7 +14,6 @@ import AddRestaurant from './AddRestaurant';
         height: '70vh',
     };
     const options = {
-        disableDefaultUI: true,
         zoomControl: true,
     };
     const center ={
@@ -36,7 +34,7 @@ export default function Map() {
         if(restaurants.find(restaurant => restaurant.id === selected.id)){ 
             return <RestaurantCard className="map-card" style={{width: '250px'}} restaurant={selected}/>
         }else{
-            return <AddRestaurant position={{lat: selected.lat, lng: selected.lng}}  />
+            return <AddRestaurant  position={{lat: selected.lat, lng: selected.lng}}  />
         }
     }
 
@@ -96,17 +94,13 @@ export default function Map() {
                         }}
                         >   
                         {checkLocation(selected)}
-                        {/* <AddRestaurant onClick={console.log(selected)} position={{lat: selected.lat, lng: selected.lng}}  /> */}
-                        {/* <RestaurantCard className="map-card" style={{width: '250px'}}restaurant={selected}/> */}
-
                     </InfoWindow>
                 )}
                 {markers.map((marker) =>  
                     <Marker 
                         key={`${marker.lat}-${marker.lng}`}
                         position={{lat: marker.lat, lng: marker.lng}} 
-                        onClick ={() => {
-                            setSelected(marker);
+                        onClick ={() => { setSelected(marker);
                         }}
                     /> 
                 )}

@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const RestaurantList = (props) => {
+const RestaurantList = ( ) => {
     const {restaurants, setRestaurants } = useContext(RestaurantsContext)
 
     useEffect(() => {
@@ -51,7 +51,7 @@ const RestaurantList = (props) => {
                         sm={6}
                         md={3}
                         >
-                            <RestaurantCard key={restaurant.id+restaurant.location} restaurant={restaurant} />
+                            <RestaurantCard key={restaurant.id+restaurant.name} restaurant={restaurant} />
                             </Grid>
                             </>
                         )
