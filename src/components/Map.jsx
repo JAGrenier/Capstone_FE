@@ -6,7 +6,7 @@ import Locate from "../components/MapComponents/Locate"
 import Search from "../components/MapComponents/Search"
 import RestaurantCard from './RestaurantCard';
 import AddRestaurant from './AddRestaurant';
-import pin from '../map-pin.svg';
+import { Button } from '@material-ui/core';
 
     const libraries = ["places"]
     const type = ['restaurant']
@@ -52,16 +52,33 @@ export default function Map() {
         mapRef.current = map;
     }, []);
 
+    const handleScroll = () =>{
+        window.scrollTo({
+            top: 750, 
+            left: 0,
+            behavior: 'auto'
+        })
+    }
+
     const panTo = React.useCallback(({lat, lng}) => {
             mapRef.current.panTo({ lat, lng });
             mapRef.current.setZoom(18);
         }, []);
-
+    
     if (loadError) return "Error Loading Maps";
     if (!isLoaded) return "Loading Maps";
         
     return (
         <div >
+            <Button 
+                style={{margin: "0.5"}}
+                variant="contained"
+                color="primary"
+                onClick={handleScroll}
+                >
+                Scroll To Reviews
+            </Button>
+            <br></br>
             <GoogleMap 
             mapContainerStyle={mapContainerStyle} 
             zoom={10} 
