@@ -35,8 +35,16 @@ const RestaurantDetailsPage = (props) => {
                         <span>
                         {selectedRestaurant.restaurant.count ? `(${selectedRestaurant.restaurant.count})` : "(0)"} 
                         </span>
+                        <br></br>
+                        <Button 
+                            variant="contained"
+                            color="primary" 
+                            href={`https://www.google.com/maps/search/?api=1&query=${selectedRestaurant.restaurant.lat},${selectedRestaurant.restaurant.lng}`}>
+                                Link to Google Maps
+                        </Button>
                     </div> 
                 </header>
+                <br></br>
                 
                 
                 <Reviews reviews={selectedRestaurant.reviews} />

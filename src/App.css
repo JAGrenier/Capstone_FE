@@ -33,10 +33,3 @@
     top: 1rem;
     z-index: 10;
 }
-
-.map-card img {
-    max-width: 75%;
-}
-.restaurant-card{
-    font-size: 1rem;
-}

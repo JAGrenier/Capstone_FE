@@ -8,8 +8,6 @@ import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-import AddRestaurant from './AddRestaurant';
-import { Hidden } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -52,9 +50,6 @@ export default function RestaurantCard({restaurant}) {
                     title={restaurant.name}
                     disableTypography
                     >
-                        {/* <Typography className={classes.title} > */}
-                            {/* {restaurant.name} */}
-                        {/* </Typography> */}
                     </CardHeader>
                         <CardMedia
                         className={classes.media}

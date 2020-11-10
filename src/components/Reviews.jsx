@@ -6,9 +6,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
 import Grid from '@material-ui/core/Grid'
-import { Switch } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -84,7 +82,7 @@ const Reviews = ({reviews}) => {
                                 </Typography>
                                 <Typography variant="body2" color="textSecondary" component="p">
                                     <span><strong>
-                                      Disability Reviewer:  
+                                      Disability of Reviewer:  
                                       {disabilityType(review.disability)}
                                       </strong>
                                       </span>
