@@ -1,6 +1,7 @@
 import usePlacesAutocomplete, { getGeocode,getLatLng } from "use-places-autocomplete";
 import { Combobox, ComboboxInput,ComboboxPopover, ComboboxList, ComboboxOption} from "@reach/combobox";
 
+
 export default function Search({panTo}) {
     const {
         ready,
@@ -15,6 +16,7 @@ export default function Search({panTo}) {
         types: [('establishment')]
         },
     });
+
     const handleInput = (e) => {
         setValue(e.target.value);
     };
