@@ -29,6 +29,7 @@ export default function RestaurantCard({restaurant}) {
     let history = useHistory();
     const handleRestaurantSelect = (id) => {
         history.push(`/restaurants/${id}`)
+        window.scrollTo(0,0)
     }
 
     const renderRating = (restaurant) => {

@@ -6,7 +6,7 @@ import Locate from "../components/MapComponents/Locate"
 import Search from "../components/MapComponents/Search"
 import RestaurantCard from './RestaurantCard';
 import AddRestaurant from './AddRestaurant';
-
+import { Button } from '@material-ui/core';
 
     const libraries = ["places"]
     const type = ['restaurant']
@@ -15,7 +15,6 @@ import AddRestaurant from './AddRestaurant';
         height: '70vh',
     };
     const options = {
-        disableDefaultUI: true,
         zoomControl: true,
     };
     const center ={
@@ -36,7 +35,7 @@ export default function Map() {
         if(restaurants.find(restaurant => restaurant.id === selected.id)){ 
             return <RestaurantCard className="map-card" style={{width: '250px'}} restaurant={selected}/>
         }else{
-            return <AddRestaurant position={{lat: selected.lat, lng: selected.lng}}  />
+            return <AddRestaurant  position={{lat: selected.lat, lng: selected.lng}}  />
         }
     }
 
@@ -53,16 +52,33 @@ export default function Map() {
         mapRef.current = map;
     }, []);
 
+    const handleScroll = () =>{
+        window.scrollTo({
+            top: 750, 
+            left: 0,
+            behavior: 'auto'
+        })
+    }
+
     const panTo = React.useCallback(({lat, lng}) => {
             mapRef.current.panTo({ lat, lng });
             mapRef.current.setZoom(18);
         }, []);
-
+    
     if (loadError) return "Error Loading Maps";
     if (!isLoaded) return "Loading Maps";
         
     return (
         <div >
+            <Button 
+                style={{margin: "0.5"}}
+                variant="contained"
+                color="primary"
+                onClick={handleScroll}
+                >
+                Scroll To Reviews
+            </Button>
+            <br></br>
             <GoogleMap 
             mapContainerStyle={mapContainerStyle} 
             zoom={10} 
@@ -96,17 +112,13 @@ export default function Map() {
                         }}
                         >   
                         {checkLocation(selected)}
-                        {/* <AddRestaurant onClick={console.log(selected)} position={{lat: selected.lat, lng: selected.lng}}  /> */}
-                        {/* <RestaurantCard className="map-card" style={{width: '250px'}}restaurant={selected}/> */}
-
                     </InfoWindow>
                 )}
                 {markers.map((marker) =>  
                     <Marker 
                         key={`${marker.lat}-${marker.lng}`}
                         position={{lat: marker.lat, lng: marker.lng}} 
-                        onClick ={() => {
-                            setSelected(marker);
+                        onClick ={() => { setSelected(marker);
                         }}
                     /> 
                 )}

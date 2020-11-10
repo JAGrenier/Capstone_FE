@@ -1,10 +1,7 @@
-/* body{ 
-    text-align: center;
-}   */
-:root{
+/* :root{
     --mainRed: #ac3931;
     --lightRed: #af4831;
-}
+} */
 .header-image{
     width: 50%;
     height: auto;
@@ -30,6 +27,7 @@
 .locate {
     position: absolute;
     right: 0;
+    left: 1%;
     top: 1rem;
     z-index: 10;
 }
