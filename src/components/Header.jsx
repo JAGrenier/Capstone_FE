@@ -28,6 +28,6 @@ const NavWrapper = styled.nav `
     width: 100%;
     background: var(--white);
     .logo{
-        height: 5rem;
+        height: 5.5rem;
     }
 `

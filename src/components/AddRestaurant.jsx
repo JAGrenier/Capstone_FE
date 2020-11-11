@@ -37,9 +37,7 @@ const AddRestaurant = ({position}) => {
     const [image, setImage] = useState("")
     const classes = useStyles();
 
-
     const handleSubmit = async (event) => {
-        console.log("position", position)
         event.preventDefault()
         try{ 
             const response = await RestaurantFinder.post("/", {

@@ -54,7 +54,7 @@ export default function Map() {
 
     const handleScroll = () =>{
         window.scrollTo({
-            top: 750, 
+            top: 650, 
             left: 0,
             behavior: 'auto'
         })
@@ -70,6 +70,8 @@ export default function Map() {
         
     return (
         <div >
+            <section className="map-header">
+            <h2 className="header2-text">Map of Businesses with Reviews</h2>
             <Button 
                 className="scroll-button"
                 variant="contained"
@@ -78,7 +80,7 @@ export default function Map() {
                 >
                 Scroll To Reviews
             </Button>
-            <br></br>
+            </section>     
             <GoogleMap 
             mapContainerStyle={mapContainerStyle} 
             zoom={10} 

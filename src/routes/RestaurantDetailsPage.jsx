@@ -23,7 +23,7 @@ const RestaurantDetailsPage = () => {
             }
         }
         fetchData();
-    },[])
+    },[id, setSelectedRestaurant])
     return(
         <div>
             <Header />
@@ -36,12 +36,16 @@ const RestaurantDetailsPage = () => {
                         {selectedRestaurant.restaurant.count ? `(${selectedRestaurant.restaurant.count})` : "(0)"} 
                         </span>
                         <br></br>
+                        <Link to={`https://www.google.com/maps/search/?api=1&query=${selectedRestaurant.restaurant.lat},${selectedRestaurant.restaurant.lng}`}> 
                         <Button 
                             variant="contained"
+                            className="google_button"
                             color="primary" 
-                            href={`https://www.google.com/maps/search/?api=1&query=${selectedRestaurant.restaurant.lat},${selectedRestaurant.restaurant.lng}`}>
+                            target="_blank"
+                            >
                                 Link to Google Maps
                         </Button>
+                        </Link>
                     </div> 
                 </header>
                 <br></br>
@@ -52,8 +56,7 @@ const RestaurantDetailsPage = () => {
                     <Button  
                     variant="contained"
                     color="primary" 
-                    style={{maxWidth: "10rem", marginTop: "1rem"}}
-                    to="/restaurants">
+                    style={{maxWidth: "10rem", marginTop: "1rem"}}>
                     Return to Map
                     </Button>
                 </Link>

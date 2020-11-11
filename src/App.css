@@ -2,12 +2,18 @@
     --mainRed: #ac3931;
     --lightRed: #af4831;
 } */
-.header-image{
-    width: 50%;
-    height: auto;
-}
 .header-text{
     font-size: 2em;
+}
+.header2-text{
+    font-size: 1rem;
+    ;
+}
+.map-header{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-between;
 }
 .search {
     position: relative;
@@ -25,7 +31,7 @@
 }
 
 .scroll-button{
-    left: 1%;
+    right: 1%;
     bottom: 0.5rem;
 }
 
