@@ -42,3 +42,8 @@
     top: 1rem;
     z-index: 10;
 }
+
+.google_button:hover{
+    color: white;
+    text-align: none;
+}

@@ -33,7 +33,7 @@ export default function Map() {
     
     const checkLocation = (selected) => {
         if(restaurants.find(restaurant => restaurant.id === selected.id)){ 
-            return <RestaurantCard className="map-card" style={{width: '250px'}} restaurant={selected}/>
+            return <RestaurantCard key={selected.id} className="map-card" style={{width: '250px'}} restaurant={selected}/>
         }else{
             return <AddRestaurant  position={{lat: selected.lat, lng: selected.lng}}  />
         }
@@ -62,7 +62,7 @@ export default function Map() {
 
     const panTo = React.useCallback(({lat, lng}) => {
             mapRef.current.panTo({ lat, lng });
-            mapRef.current.setZoom(18);
+            mapRef.current.setZoom(15);
         }, []);
     
     if (loadError) return "Error Loading Maps";
