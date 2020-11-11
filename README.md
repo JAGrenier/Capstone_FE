@@ -3,6 +3,14 @@
 React.js, Material Ui, Google Places API, and Google Maps Javascript API. 
 
 ## Features
+Login and Sign up for New Account 
+
+Map Features 
+
+Add Location
+
+Add Review
+
 ## Challenges and Future Implementation
 
 ## Demo Video 
