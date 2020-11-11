@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     },
     media: {
         height: 0,
-        paddingTop: "56.25%" // 16:9
+        paddingTop: "56.25%" 
     },
     title: {
         fontWeight: 500,
@@ -61,8 +61,7 @@ export default function RestaurantCard({restaurant}) {
                                 <span>{renderRating(restaurant)}</span>
                                 </Typography>
                             </CardContent>
-                    <Button 
-                        className="card-button"
+                    <Button  
                         variant="contained"
                         color="primary"
                         fullWidth  
