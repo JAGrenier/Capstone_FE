@@ -24,6 +24,11 @@
     width: 100%;
 }
 
+.scroll-button{
+    left: 1%;
+    bottom: 0.5rem;
+}
+
 .locate {
     position: absolute;
     right: 0;

@@ -71,7 +71,7 @@ export default function Map() {
     return (
         <div >
             <Button 
-                style={{margin: "0.5"}}
+                className="scroll-button"
                 variant="contained"
                 color="primary"
                 onClick={handleScroll}
