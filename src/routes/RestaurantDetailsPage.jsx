@@ -36,16 +36,18 @@ const RestaurantDetailsPage = () => {
                         {selectedRestaurant.restaurant.count ? `(${selectedRestaurant.restaurant.count})` : "(0)"} 
                         </span>
                         <br></br>
-                        <Link to={`https://www.google.com/maps/search/?api=1&query=${selectedRestaurant.restaurant.lat},${selectedRestaurant.restaurant.lng}`}> 
+                        {/* <Link to={`https://www.google.com/maps/search/?api=1&query=${selectedRestaurant.restaurant.lat},${selectedRestaurant.restaurant.lng}`}
+                        target="_blank">  */}
                         <Button 
                             variant="contained"
                             className="google_button"
                             color="primary" 
                             target="_blank"
+                            href={`https://www.google.com/maps/search/?api=1&query=${selectedRestaurant.restaurant.lat},${selectedRestaurant.restaurant.lng}`}
                             >
-                                Link to Google Maps
+                                View in Google Maps
                         </Button>
-                        </Link>
+                        {/* </Link> */}
                     </div> 
                 </header>
                 <br></br>

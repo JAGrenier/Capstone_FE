@@ -38,7 +38,7 @@ export default function RestaurantCard({restaurant}) {
         }
         return(
             <>
-                <StarRating rating={restaurant.average_rating} key={restaurant.id} />
+                <StarRating rating={restaurant.average_rating} key={restaurant.id+restaurant.average_rating} />
                 <span color="primary">({restaurant.count})</span>
             </>
         ) 
@@ -66,7 +66,7 @@ export default function RestaurantCard({restaurant}) {
                         color="primary"
                         fullWidth  
                         onClick={() => handleRestaurantSelect(restaurant.id)} 
-                        key={restaurant.id}>
+                        >
                         Add Review & View Details
                     </Button>
                 </Card>        
