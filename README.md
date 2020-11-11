@@ -5,7 +5,7 @@ React.js, Material Ui, Google Places API, and Google Maps Javascript API.
 ## Features
 ![Login, Logout, Signup](./GifsForReadMe/SignIn.gif)
 ![Map Features](./GifsForReadMe/MapFeatures.gif)
-
+![View a Review](./GifsForReadMe/Review.gif)
 
 Map Features 
 
