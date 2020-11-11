@@ -1,6 +1,6 @@
 # Socially Accessible Denver (Front End) 
 ## Technologies 
-React.js, Material Ui 
+React.js, Material Ui, Google Places API, and Google Maps Javascript API. 
 
 ## Features
 ## Challenges and Future Implementation
