@@ -3,7 +3,7 @@
 React.js, Material Ui, Google Places API, and Google Maps Javascript API. 
 
 ## Features
-Login and Sign up for New Account 
+![Login, Logout, Signup](/src/images/AdventureStationGif1.gif)
 
 Map Features 
 
