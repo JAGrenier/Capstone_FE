@@ -15,5 +15,7 @@ Add Review
 
 ## Demo Video 
 
+## How to Open 
+
 ## Contact 
 You can find me on [LinkedIn](https://www.linkedin.com/in/jagrenier/)
