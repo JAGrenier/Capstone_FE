@@ -4,6 +4,7 @@ React.js, Material Ui, Google Places API, and Google Maps Javascript API.
 
 ## Features
 ![Login, Logout, Signup](./GifsForReadMe/SignIn.gif)
+The application first directs users to a sign in page. This was created using material Ui. Signing out will direct users back to the sign in page, and there is a link on the sign in page to sign in as a new user. 
 <br>
 ![Map Features](./GifsForReadMe/MapFeatures.gif)
 
