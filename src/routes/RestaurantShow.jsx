@@ -7,10 +7,10 @@ import  Map from '../components/Map'
 function RestaurantShow() {
     return (
         <div>
-            <Header />
-            <Map />
+            <Header key={Math.random()} />
+            <Map key={Math.random()}  />
             <br></br>
-            <RestaurantList />
+            <RestaurantList key={Math.random()} />
         </div>
     )
 }

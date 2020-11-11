@@ -5,7 +5,6 @@ import Home from './routes/Home';
 import SignUp from './routes/SignUp';
 import Login from './routes/Login';
 import RestaurantDetailsPage from './routes/RestaurantDetailsPage';
-// import UpdatePage from './routes/UpdatePage';
 import "./App.css"
 import RestaurantShow from './routes/RestaurantShow';
 import { AuthProvider } from './Context/auth';

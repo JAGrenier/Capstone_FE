@@ -34,7 +34,7 @@ const RestaurantList = ( ) => {
     const classes = useStyles();
 
     return (
-        <div className={classes.root}> 
+        <div key={Math.random()} className={classes.root}> 
         <Grid 
         container 
         spacing={2}
@@ -44,16 +44,15 @@ const RestaurantList = ( ) => {
         >
                     {restaurants && restaurants.map((restaurant) => {
                         return(
-                            <>
-                        <Grid 
-                        item 
-                        xs={12}
-                        sm={6}
-                        md={3}
-                        >
-                            <RestaurantCard key={restaurant.id} restaurant={restaurant} />
+                            <Grid 
+                                item 
+                                xs={12}
+                                sm={6}
+                                md={3}
+                                key={restaurant.id}
+                            >
+                                <RestaurantCard key={restaurant.id} restaurant={restaurant} />
                             </Grid>
-                            </>
                         )
                     })}
             </Grid>
