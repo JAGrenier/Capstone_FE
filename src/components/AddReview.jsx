@@ -12,6 +12,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
+
 const useStyles = makeStyles((theme) => ({
     root:{
         height: '100vh',
@@ -30,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
         width: '50%', // Fix IE 11 issue.
         marginTop: theme.spacing(1),
     },
+    
     submit: {
         margin: theme.spacing(3, 0, 2),
     },
@@ -76,7 +78,7 @@ const AddReview = () => {
                 </Typography>
                 <form className={classes.form} noValidate>
                 <Grid container spacing={1} >
-                    <Grid item xs={12} > 
+                    <Grid item xs={12} sm={6}> 
                         <TextField 
                         autoComplete="fname"
                         name="name"
@@ -89,8 +91,9 @@ const AddReview = () => {
                         label="Name"
                     />
                     </Grid>
-                    <Grid item xs={12}>
-                        <FormControl variant="outlined" style={{minWidth: 552}}className={classes.formControl}>
+
+                    <Grid item xs={12} sm={6}>
+                        <FormControl variant="outlined" style={{minWidth: 270}} className={classes.formControl}>
                         <InputLabel id="rating">Rating</InputLabel>
                             <Select
                                 labelId="rating"
@@ -99,8 +102,9 @@ const AddReview = () => {
                                 onChange={(event) => setRating(event.target.value)}
                                 label="Rating"
                                 required
+    
                                 >
-                                <MenuItem value={1}>1 Stars</MenuItem>
+                                <MenuItem value={1}>1 Star</MenuItem>
                                 <MenuItem value={2}>2 Stars</MenuItem>
                                 <MenuItem value={3}>3 Stars</MenuItem>
                                 <MenuItem value={4}>4 Stars</MenuItem>
@@ -108,6 +112,7 @@ const AddReview = () => {
                             </Select>
                         </FormControl>
                     </Grid>
+
                     <Grid item xs={3}>
                         <FormControl variant="outlined" style={{minWidth: 552}} className={classes.formControl}>
                         <InputLabel id="disability">Disability</InputLabel>
@@ -128,6 +133,7 @@ const AddReview = () => {
                             </Select>
                         </FormControl>
                     </Grid>
+
                     <Grid item xs={12}>
                             <TextField
                             name = "review"
