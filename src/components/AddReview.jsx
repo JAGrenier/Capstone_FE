@@ -76,7 +76,7 @@ const AddReview = () => {
                 </Typography>
                 <form className={classes.form} noValidate>
                 <Grid container spacing={1} >
-                    <Grid item xs={12} >
+                    <Grid item xs={12} > 
                         <TextField 
                         autoComplete="fname"
                         name="name"

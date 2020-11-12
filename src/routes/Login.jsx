@@ -131,9 +131,7 @@ function Login ({history}) {
               </Grid>
             </Grid>
             <Box mt={2}>
-              <Typography variant="body3" color="text-secondary">
               {/* Photo by <a href="https://unsplash.com/@elevatebeer?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Elevate</a> on <a href="https://unsplash.com/@elevatebeer?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a> */}
-              </Typography>
             </Box>
           </form>
         </div>
