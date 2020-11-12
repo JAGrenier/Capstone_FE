@@ -95,7 +95,7 @@ const AddReview = () => {
                             <Select
                                 labelId="rating"
                                 id="rating"
-                                value={rating}
+                                value=""
                                 onChange={(event) => setRating(event.target.value)}
                                 label="Rating"
                                 required
