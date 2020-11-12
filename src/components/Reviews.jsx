@@ -50,7 +50,6 @@ const Reviews = ({reviews}) => {
         spacing={2}
         direction="row"
         justify="center"
-        alignItems
         >
             {reviews.map((review) => {
                 return ( 
@@ -75,7 +74,7 @@ const Reviews = ({reviews}) => {
                         
                             <CardContent>
                                 <Typography variant="body2" color="textSecondary" component="p">
-                                    <span><StarRating rating={review.rating} /></span>
+                                    <span><StarRating rating={review.rating} key={review.id} /></span>
                                 </Typography>
                                 <Typography variant="body2" color="textSecondary" component="p">
                                     <span>{review.review}</span>
