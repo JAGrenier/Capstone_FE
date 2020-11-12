@@ -12,7 +12,6 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
-
 const useStyles = makeStyles((theme) => ({
     root:{
         height: '100vh',
@@ -31,7 +30,6 @@ const useStyles = makeStyles((theme) => ({
         width: '50%', // Fix IE 11 issue.
         marginTop: theme.spacing(1),
     },
-    
     submit: {
         margin: theme.spacing(3, 0, 2),
     },
@@ -48,11 +46,8 @@ const AddReview = () => {
     const [rating, setRating] = useState("Rating")
     const classes = useStyles();
 
-    
-
     const handleSubmitReview = async (event) => {    
         event.preventDefault()
-        console.log(name)
         try{
             await RestaurantFinder.post(`/${id}/addReview`, {
                 restaurant_id: id,
@@ -91,7 +86,6 @@ const AddReview = () => {
                         label="Name"
                     />
                     </Grid>
-
                     <Grid item xs={12} sm={6}>
                         <FormControl variant="outlined" style={{minWidth: 270}} className={classes.formControl}>
                         <InputLabel id="rating">Rating</InputLabel>
@@ -102,8 +96,10 @@ const AddReview = () => {
                                 onChange={(event) => setRating(event.target.value)}
                                 label="Rating"
                                 required
-    
                                 >
+                                <MenuItem value="">
+                                    <em>None</em>
+                                </MenuItem>
                                 <MenuItem value={1}>1 Star</MenuItem>
                                 <MenuItem value={2}>2 Stars</MenuItem>
                                 <MenuItem value={3}>3 Stars</MenuItem>
@@ -112,7 +108,6 @@ const AddReview = () => {
                             </Select>
                         </FormControl>
                     </Grid>
-
                     <Grid item xs={3}>
                         <FormControl variant="outlined" style={{minWidth: 552}} className={classes.formControl}>
                         <InputLabel id="disability">Disability</InputLabel>
@@ -123,7 +118,6 @@ const AddReview = () => {
                                 onChange={(event) => setDisability(event.target.value)}
                                 label="Disability"
                                 required
-    
                                 >
                                 <MenuItem value={1}>Physical</MenuItem>
                                 <MenuItem value={2}>Cognitive </MenuItem>
