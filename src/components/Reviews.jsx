@@ -53,7 +53,7 @@ const Reviews = ({reviews}) => {
         >
             {reviews.map((review) => {
                 return ( 
-                <>
+                
                     <Grid 
                         item 
                         xs={12}
@@ -89,7 +89,7 @@ const Reviews = ({reviews}) => {
                             </CardContent>
                         </Card>
                     </Grid>
-                </>
+                
                 ) 
             })}
             </Grid>
