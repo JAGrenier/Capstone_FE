@@ -8,7 +8,6 @@ import { RestaurantsContext } from '../Context/RestaurantsContext'
 import Header from '../components/Header'
 import { Button } from '@material-ui/core'
 
-
 const RestaurantDetailsPage = () => {
     const {id} = useParams()
     const {selectedRestaurant, setSelectedRestaurant} = useContext(RestaurantsContext)
@@ -36,8 +35,6 @@ const RestaurantDetailsPage = () => {
                         {selectedRestaurant.restaurant.count ? `(${selectedRestaurant.restaurant.count})` : "(0)"} 
                         </span>
                         <br></br>
-                        {/* <Link to={`https://www.google.com/maps/search/?api=1&query=${selectedRestaurant.restaurant.lat},${selectedRestaurant.restaurant.lng}`}
-                        target="_blank">  */}
                         <Button 
                             variant="contained"
                             className="google_button"
@@ -47,12 +44,9 @@ const RestaurantDetailsPage = () => {
                             >
                                 View in Google Maps
                         </Button>
-                        {/* </Link> */}
                     </div> 
                 </header>
                 <br></br>
-                
-                
                 <Reviews reviews={selectedRestaurant.reviews} />
                 <Link to="/" >
                     <Button  
@@ -63,7 +57,6 @@ const RestaurantDetailsPage = () => {
                     </Button>
                 </Link>
                 <AddReview />
-                    
                 </>
             )}
         </div>

@@ -10,7 +10,6 @@ import RestaurantShow from './routes/RestaurantShow';
 import { AuthProvider } from './Context/auth';
 import PrivateRoute from './PrivateRoute';
 
-
 const App = () => {
     return( 
         <AuthProvider>
