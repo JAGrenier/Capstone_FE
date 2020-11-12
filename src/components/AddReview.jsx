@@ -90,7 +90,7 @@ const AddReview = () => {
                     />
                     </Grid>
                     <Grid item xs={12}>
-                        <FormControl variant="outlined" style={{minWidth: 551}}className={classes.formControl}>
+                        <FormControl variant="outlined" style={{minWidth: 462}}className={classes.formControl}>
                         <InputLabel id="rating">Rating</InputLabel>
                             <Select
                                 labelId="rating"
@@ -109,7 +109,7 @@ const AddReview = () => {
                         </FormControl>
                     </Grid>
                     <Grid item xs={3}>
-                        <FormControl variant="outlined" style={{minWidth: 551}} className={classes.formControl}>
+                        <FormControl variant="outlined" style={{minWidth: 462}} className={classes.formControl}>
                         <InputLabel id="disability">Disability</InputLabel>
                             <Select
                                 labelId="disability"
