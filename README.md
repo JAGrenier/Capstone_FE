@@ -12,12 +12,6 @@ The application first directs users to a sign in page. This was created using ma
 The Map has a zoom to my location feature as an autocomplete search box. The search box will zoom to the location selected and only returns results in the Denver area. 
 
 
-Map Features 
-
-Add Location
-
-Add Review
-
 ## Challenges and Future Implementation
 
 ## Demo Video 
