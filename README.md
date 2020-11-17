@@ -21,6 +21,8 @@ The Map has a zoom to my location feature as an autocomplete search box. The sea
 <br>
 ### User Reviews
 ![ReviewFeature](./GifsForReadMe/Review.gif) 
+<br>
+Once Logged in Users can view all locations with reviews, view reviews for a specific location, create a new review with an image. 
 
 
 ## Challenges
