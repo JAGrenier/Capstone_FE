@@ -27,7 +27,7 @@ Once Logged in Users can view all locations with reviews, view reviews for a spe
 
 
 ## Challenges
-With the target audience of this application, accessibility was an important goal. I faced some challenges with implementing an embedded map and meeting accessibility standards. To help me with this, I used the WAVE accessibility evaluation tool throughout the process. This tool helped me make smart choices about contrast, forms, and buttons. 
+With the target audience of this application, accessibility was an important goal. To help me with this, I used the WAVE accessibility evaluation tool throughout the process. This tool helped me make smart choices about contrast, forms, and buttons. 
 
 Previous to this project I had not used Node.js or PostgreSQL. I was able to reference documentation through out the project to succesfully implement my back end.
 
