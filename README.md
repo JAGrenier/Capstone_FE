@@ -9,14 +9,17 @@ Socially Accessible Denver is a full-stack web application designed for users wi
 **API:** Google Places API, and Google Maps Javascript API.
 
 ## Features
+### Auth 
 ![Login, Logout, Signup](./GifsForReadMe/SignIn.gif)
 <br>
 The application first directs users to a sign in page. This was created using material Ui. Signing out will direct users back to the sign in page, and there is a link on the sign in page to sign in as a new user. 
 <br>
+### Embedded Map 
 ![Map Features](./GifsForReadMe/MapFeatures.gif)
 <br> 
 The Map has a zoom to my location feature as an autocomplete search box. The search box will zoom to the location selected and only returns results in the Denver area. 
 <br>
+### User Reviews
 ![ReviewFeature](./GifsForReadMe/Review.gif) 
 
 
