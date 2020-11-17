@@ -19,6 +19,9 @@ The Map has a zoom to my location feature as an autocomplete search box. The sea
 
 
 ## Challenges
+With the target audience of this application, accessibility was an important goal. I faced some challenges with implementing an embedded map and meeting accessibility standards. To help me with this, I used the WAVE accessibility evaluation tool throughout the process. This tool helped me make smart choices about contrast, forms, and buttons. 
+
+Previous to this project I had not used Node.js or PostgreSQL. I was able to reference documentation through out the project to succesfully implement my back end.
 
 ## Future Implementation
 * An admin login to allow for deleting and updating reviews as needed and track traffic 
@@ -26,6 +29,8 @@ The Map has a zoom to my location feature as an autocomplete search box. The sea
 * User profile page where they can favorite a location and track the reviews they have posted 
 
 ## Demo Video 
+[Demo Video with Audio](https://www.youtube.com/watch?v=81MHBvVuVqE&t=2s) 
+[Demo Video without Audio](https://www.youtube.com/watch?v=NZ8C9ButCNU&t=1s)
 
 ## How to Open 
 
