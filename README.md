@@ -16,6 +16,7 @@ The application first directs users to a sign in page. This was created using ma
 ![Map Features](./GifsForReadMe/MapFeatures.gif)
 <br> 
 The Map has a zoom to my location feature as an autocomplete search box. The search box will zoom to the location selected and only returns results in the Denver area. 
+<br>
 ![ReviewFeature](./GifsForReadMe/MapFeatures.gif) 
 
 
