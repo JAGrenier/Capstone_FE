@@ -3,7 +3,6 @@ import Header from '../components/Header'
 import RestaurantList from '../components/RestaurantList'
 import  Map from '../components/Map'
 
-
 function RestaurantShow() {
     return (
         <div>
@@ -16,4 +15,3 @@ function RestaurantShow() {
 }
 
 export default RestaurantShow
-

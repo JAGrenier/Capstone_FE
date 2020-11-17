@@ -46,11 +46,8 @@ const AddReview = () => {
     const [rating, setRating] = useState("Rating")
     const classes = useStyles();
 
-    
-
     const handleSubmitReview = async (event) => {    
         event.preventDefault()
-        console.log(name)
         try{
             await RestaurantFinder.post(`/${id}/addReview`, {
                 restaurant_id: id,
@@ -76,7 +73,7 @@ const AddReview = () => {
                 </Typography>
                 <form className={classes.form} noValidate>
                 <Grid container spacing={1} >
-                    <Grid item xs={12} > 
+                    <Grid item xs={12} sm={6}> 
                         <TextField 
                         autoComplete="fname"
                         name="name"
@@ -89,18 +86,21 @@ const AddReview = () => {
                         label="Name"
                     />
                     </Grid>
-                    <Grid item xs={12}>
-                        <FormControl variant="outlined" style={{minWidth: 552}}className={classes.formControl}>
+                    <Grid item xs={12} sm={6}>
+                        <FormControl variant="outlined" style={{minWidth: 270}} className={classes.formControl}>
                         <InputLabel id="rating">Rating</InputLabel>
                             <Select
                                 labelId="rating"
                                 id="rating"
-                                value=""
+                                value={rating}
                                 onChange={(event) => setRating(event.target.value)}
                                 label="Rating"
                                 required
                                 >
-                                <MenuItem value={1}>1 Stars</MenuItem>
+                                <MenuItem value="">
+                                    <em>None</em>
+                                </MenuItem>
+                                <MenuItem value={1}>1 Star</MenuItem>
                                 <MenuItem value={2}>2 Stars</MenuItem>
                                 <MenuItem value={3}>3 Stars</MenuItem>
                                 <MenuItem value={4}>4 Stars</MenuItem>
@@ -118,7 +118,6 @@ const AddReview = () => {
                                 onChange={(event) => setDisability(event.target.value)}
                                 label="Disability"
                                 required
-    
                                 >
                                 <MenuItem value={1}>Physical</MenuItem>
                                 <MenuItem value={2}>Cognitive </MenuItem>
@@ -128,6 +127,7 @@ const AddReview = () => {
                             </Select>
                         </FormControl>
                     </Grid>
+
                     <Grid item xs={12}>
                             <TextField
                             name = "review"
@@ -162,6 +162,7 @@ const AddReview = () => {
                         variant="contained"
                         >Submit Review
                     </Button> 
+                    <br></br>
                 </Grid>
             </form>
         </div>
