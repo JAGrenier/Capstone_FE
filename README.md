@@ -16,6 +16,7 @@ The application first directs users to a sign in page. This was created using ma
 ![Map Features](./GifsForReadMe/MapFeatures.gif)
 <br> 
 The Map has a zoom to my location feature as an autocomplete search box. The search box will zoom to the location selected and only returns results in the Denver area. 
+![ReviewFeature](./GifsForReadMe/MapFeatures.gif) 
 
 
 ## Challenges
@@ -30,9 +31,8 @@ Previous to this project I had not used Node.js or PostgreSQL. I was able to ref
 
 ## Demo Video 
 [Demo Video with Audio](https://www.youtube.com/watch?v=81MHBvVuVqE&t=2s) 
-[Demo Video without Audio](https://www.youtube.com/watch?v=NZ8C9ButCNU&t=1s)
 
-## How to Open 
+[Demo Video without Audio](https://www.youtube.com/watch?v=NZ8C9ButCNU&t=1s)
 
 ## Contact 
 You can find me on [LinkedIn](https://www.linkedin.com/in/jagrenier/)
