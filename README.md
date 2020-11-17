@@ -1,5 +1,6 @@
 # Socially Accessible Denver (Front End) 
-Socially Accessible Denver is a full-stack web application designed for users with disabilities to post and read reviews of restaurants, bars, and other social locations in Denver. I was inspired to create this application from my time working in adaptive cycling. After spending all day out riding, the groups I worked with would want a place to go out and enjoy a meal together. Finding a restaurant or bar that could accommodate multiple individuals with disabilities proved to be challenging. This application would help with this by giving a place for individuals with disabilities to share their experiences. 
+Socially Accessible Denver is a full-stack web application designed for users with disabilities to post and read reviews of restaurants, bars, and other social locations in Denver. I was inspired to create this application from my time working in adaptive cycling. After spending all day out riding, the groups I worked with would want a place to go out and enjoy a meal together. Finding a restaurant or bar that could accommodate multiple individuals with disabilities proved to be challenging. This application would help with this by giving a place for individuals with disabilities to share their experiences.
+[View Back End Repo](https://github.com/JAGrenier/Socially-Accessible-Denver-Back-End)
 
 ## Technologies 
 **Front End:** React.js and Material Ui
