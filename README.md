@@ -5,25 +5,25 @@ Socially Accessible Denver is a full-stack web application designed for users wi
 ## Technologies 
 **Front End:** React.js and Material Ui
 
-**Back End:** Node.js with Express, PostgreSQl
+**Back End:** Node.js with Express and PostgreSQl
 
-**API:** Google Places API, and Google Maps Javascript API.
+**API:** Google Places API and Google Maps Javascript API.
 
 ## Features
 ### Auth 
 ![Login, Logout, Signup](./GifsForReadMe/SignIn.gif)
 <br>
-The application first directs users to a sign in page. This page was designed using Material Ui and the aut is set up with Firebase Authentication. Signing out will direct users back to the sign in page, and there is a link on the sign in page directing to a form to sign in as a new user. 
+The application first directs users to a sign in page. This page was designed using Material Ui and the auth is set up with Firebase Authentication. Signing out will direct users back to the sign in page. There is a link on the sign in page directing to a form to sign in as a new user. 
 <br>
 ### Embedded Map 
 ![Map Features](./GifsForReadMe/MapFeatures.gif)
 <br> 
-The Map has a zoom to my location feature as an autocomplete search box. The search box will zoom to the location selected and only returns results in the Denver area. The map is created using the Google Javascript Maps API and the autocomplete is using the Google Places API.
+The Map has a zoom to my location feature and an autocomplete search box. The search box will zoom to the location selected and only returns results in the Denver area. The map is created using the Google Javascript Maps API and the autocomplete is using the Google Places API.
 <br>
 ### User Reviews
 ![ReviewFeature](./GifsForReadMe/Review.gif) 
 <br>
-Once Logged in Users can view all locations with reviews, view reviews for a specific location, create a new review with an image. 
+Once Logged in Users can view all locations with reviews, view reviews for a specific location, and create a new review with an image. 
 
 
 ## Challenges
@@ -33,7 +33,7 @@ Previous to this project I had not used Node.js or PostgreSQL. I was able to ref
 
 ## Future Implementation
 * An admin login to allow for deleting and updating reviews as needed and track traffic 
-* Further accessibility testing including manual checking using screen readers 
+* Further accessibility testing including manual checks using screen readers 
 * User profile page where they can favorite a location and track the reviews they have posted 
 
 ## Demo Video 
